@@ -3,3 +3,14 @@ F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\obj\Debug\net5.0\OOP.GeneratedMSBu
 F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\obj\Debug\net5.0\OOP.AssemblyInfoInputs.cache
 F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\obj\Debug\net5.0\OOP.AssemblyInfo.cs
 F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\obj\Debug\net5.0\OOP.csproj.CoreCompileInputs.cache
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\bin\Debug\net5.0\OOP.exe
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\bin\Debug\net5.0\OOP.deps.json
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\bin\Debug\net5.0\OOP.runtimeconfig.json
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\bin\Debug\net5.0\OOP.runtimeconfig.dev.json
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\bin\Debug\net5.0\OOP.dll
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\bin\Debug\net5.0\ref\OOP.dll
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\bin\Debug\net5.0\OOP.pdb
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\obj\Debug\net5.0\OOP.dll
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\obj\Debug\net5.0\ref\OOP.dll
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\obj\Debug\net5.0\OOP.pdb
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\obj\Debug\net5.0\OOP.genruntimeconfig.cache

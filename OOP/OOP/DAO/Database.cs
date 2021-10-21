@@ -21,9 +21,9 @@ namespace OOP.DAO
             }
         }
 
-        private static List<Product> listProduct = null;
-        private static List<Category> listCategory = null;
-        private static List<Accessory> listAccessory = null;
+        private static List<Product> listProduct = new List<Product>() ;
+        private static List<Category> listCategory  = new List<Category>();
+        private static List<Accessory> listAccessory = new List<Accessory>() ;
 
         public static List<Product> getListProduct
         {
@@ -53,7 +53,7 @@ namespace OOP.DAO
             }
         }
 
-        public static int insertTable(String name, object row)
+        public static int insertTable(String name, Object row)
         {
             if (name.Equals("Category"))
             {
@@ -79,17 +79,17 @@ namespace OOP.DAO
          * 
          * @param name ( name Table can cap nhap)
          * @param where (ten can tim trong du lieu)
-         * @return array (Danh sach du lieu tim duoc (success) hoac new list<object> (khong ton tai du lieu) hoac where isempy -> all list)
+         * @return array (Danh sach du lieu tim duoc (success) hoac new list<Object> (khong ton tai du lieu) hoac where isempy -> all list)
          */
-        public static List<object> selectTable(String name, String where)
+        public static List<Object> selectTable(String name, String where)
         {
-            List<object> output = new List<object>();
+            List<Object> output = new List<Object>();
             if (name.Equals("Category"))
             {
                 if (String.IsNullOrEmpty(where))
                 {
                     // or using foreach-> add
-                    output = listCategory.Cast<object>().ToList();
+                    output = listCategory.Cast<Object>().ToList();
                 }
                 else
                 {
@@ -97,7 +97,7 @@ namespace OOP.DAO
                     {
                         if (category.Name.Length > 0 && category.Name.Equals(where))
                         {
-                            output.Add((object)category);
+                            output.Add((Object)category);
                         }
                     }
                 }                
@@ -106,7 +106,7 @@ namespace OOP.DAO
             {
                 if (String.IsNullOrEmpty(where))
                 {
-                    output = listProduct.Cast<object>().ToList();
+                    output = listProduct.Cast<Object>().ToList();
                 }
                 else
                 {
@@ -114,7 +114,7 @@ namespace OOP.DAO
                     {
                         if (product.Name.Length > 0 && product.Name.Equals(where))
                         {
-                            output.Add((object)product);
+                            output.Add((Object)product);
                         }
                     }
                 }
@@ -123,7 +123,7 @@ namespace OOP.DAO
             {
                 if (String.IsNullOrEmpty(where))
                 {
-                    output = listAccessory.Cast<object>().ToList();
+                    output = listAccessory.Cast<Object>().ToList();
                 }
                 else
                 {
@@ -131,7 +131,7 @@ namespace OOP.DAO
                     {
                         if (accessory.Name.Length > 0 && accessory.Name.Equals(where))
                         {
-                            output.Add((object)accessory);
+                            output.Add((Object)accessory);
                         }
                     }
                 }
@@ -140,13 +140,13 @@ namespace OOP.DAO
         }
 
         /**
-         * Cap nhap mot ban ghi trong danh sach theo name table va object truyen vao
+         * Cap nhap mot ban ghi trong danh sach theo name table va Object truyen vao
          * 
          * @param name ( name Table can cap nhap)
-         * @param row (object table moi)
+         * @param row (Object table moi)
          * @return int (id cua table duoc cap nhap (success) hoac 0 (fail))
          */
-        public static int updateTable(String name, object row)
+        public static int updateTable(String name, Object row)
         {
             int output = 0;
             if (name.Equals("Category"))
@@ -200,13 +200,13 @@ namespace OOP.DAO
         }
 
         /**
-         * Xoa mot ban ghi trong danh sach theo name table va object truyen vao
+         * Xoa mot ban ghi trong danh sach theo name table va Object truyen vao
          * 
          * @param name ( name Table)
-         * @param row (object table)
+         * @param row (Object table)
          * @return true (success) or false (fail)
          */
-        public static bool deleteTable(String name, object row)
+        public static bool deleteTable(String name, Object row)
         {
             bool output = false;
             if (name.Equals("Category"))

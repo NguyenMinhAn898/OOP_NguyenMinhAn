@@ -12,9 +12,10 @@ namespace OOP.DAO
     {
         public static bool insert(Category category)
         {
-            Database<Category> db ;
-            int id = db.insertTable(new Category(), category);
-            return id > 0 ? true : false;
+            return false;
+            //Database<Category> db ;
+            //int id = db.insertTable(new Category(), category);
+            //return id > 0 ? true : false;
         }
     }
 }

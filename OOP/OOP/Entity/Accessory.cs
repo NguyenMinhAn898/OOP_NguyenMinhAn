@@ -10,5 +10,12 @@ namespace OOP.Entity
     {
         public int Id { get; set; }
         public String Name { get; set; }
+
+        public Accessory() { }
+        public Accessory(int id, String name)
+        {
+            Id = id;
+            Name = name;
+        }
     }
 }

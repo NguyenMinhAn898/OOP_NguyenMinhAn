@@ -1,6 +1,8 @@
 ﻿using System;
 using OOP.Entity;
 using OOP.DAO;
+using OOP.Demo;
+
 namespace OOP
 {
     class Program
@@ -10,8 +12,18 @@ namespace OOP
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            Category cate = new Category(1, "Hoa qua");
-            bool i = categoryDAO.insert(cate);
+            String name = "Category";
+            Object CategoryUpdate = new Category(5, "Trai cay");
+            DatabaseDemo.initDatabase();
+
+            if (DatabaseDemo.updateTableTest(name, CategoryUpdate)) {
+                Console.WriteLine("Cập nhập thành công");
+            }
+            else {
+                Console.WriteLine("Cập nhập thất bại");
+            }
+
+            DatabaseDemo.printTableTest();
         }
         
     }   
