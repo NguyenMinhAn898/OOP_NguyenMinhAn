@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace OOP.Entity
 {
-    class Category
+    class Category:BaseRow
     {
-        public int Id { get; set; }
-        public String Name { get; set; }
+        public override int Id { get; set; }
+        public override string Name { get; set; }
+
         public Category()
         {
         }

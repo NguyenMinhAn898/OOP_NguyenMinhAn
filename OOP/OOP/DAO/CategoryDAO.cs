@@ -12,7 +12,7 @@ namespace OOP.DAO
     {
         public CategoryDAO() { }
         private String CategoryName = "Category";
-        private static Database database = Database.getDatabase;
+        private Database database = Database.getDatabase;
         public bool insert(Category category)
         {
             int checkInsert = database.insertTable(CategoryName, category);
@@ -33,6 +33,9 @@ namespace OOP.DAO
         }
         public Category udpateCategory(Category category)
         {
+            if (category.Id <= 0)
+                return new Category();
+
             int checkUpdate = database.updateTable(CategoryName, category);
             if (checkUpdate > 0)
                 return category;
@@ -40,6 +43,8 @@ namespace OOP.DAO
         }
         public bool deleteCategory(Category category)
         {
+            if (category.Id <= 0)
+                return false;
             return database.deleteTable(CategoryName, category);
         }
 
@@ -47,7 +52,7 @@ namespace OOP.DAO
         {
             if (id <= 0)
                 return new Category();
-            return (Category)database.findById(CategoryName, id);
+            return (Category)database.findTableById(CategoryName, id);
         }
     }
 }

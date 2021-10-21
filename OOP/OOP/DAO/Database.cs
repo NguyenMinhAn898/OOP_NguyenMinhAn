@@ -21,6 +21,7 @@ namespace OOP.DAO
             }
         }
 
+        // chỗ này chưa thực sự minh bạch về việc có nen sử dụng new list hay không ạ
         private static List<Product> listProduct = new List<Product>() ;
         private static List<Category> listCategory  = new List<Category>();
         private static List<Accessory> listAccessory = new List<Accessory>() ;
@@ -53,6 +54,7 @@ namespace OOP.DAO
             }
         }
 
+        // code chưa clean cần clean hơn nữa
         public int insertTable(String name, Object row)
         {
             if (name.Equals("Category"))
@@ -72,6 +74,21 @@ namespace OOP.DAO
                 return listAccessory.Count;
             }
             return 0;
+        }
+        public int insertTable(Category category)
+        {
+            listCategory.Add(category);
+            return listCategory.Count;
+        }
+        public int insertTable(Product product)
+        {
+            listProduct.Add(product);
+            return listProduct.Count;
+        }
+        public int insertTable(Accessory accessory)
+        {
+            listAccessory.Add(accessory);
+            return listAccessory.Count;
         }
 
         /**
@@ -152,47 +169,37 @@ namespace OOP.DAO
             if (name.Equals("Category"))
             {
                 Category updateCategory = (Category)row;
-                if(updateCategory.Id > 0)
+                foreach (Category category in listCategory)
                 {
-                    foreach (Category category in listCategory)
+                    if (category.Id == updateCategory.Id)
                     {
-                        if (category.Id == updateCategory.Id)
-                        {
-                            output = updateCategory.Id;
-                            category.Name = updateCategory.Name;
-                        }
+                        output = updateCategory.Id;
+                        category.Name = updateCategory.Name;
                     }
-                }               
+                }
             }
             else if (name.Equals("Product"))
             {
-                Product updateProduct = (Product)row;
-                if(updateProduct.Id > 0)
+                Product updateProduct = (Product)row;                
+                foreach (Product product in listProduct)
                 {
-                    foreach (Product product in listProduct)
+                    if(product.Id == updateProduct.Id)
                     {
-                        if(product.Id == updateProduct.Id)
-                        {
-                            output = updateProduct.Id;
-                            product.Name = updateProduct.Name;
-                            product.CategoryId = updateProduct.CategoryId;
-                        }
+                        output = updateProduct.Id;
+                        product.Name = updateProduct.Name;
+                        product.CategoryId = updateProduct.CategoryId;
                     }
                 }
-                
             }
             else if (name.Equals("Accessory"))
             {
                 Accessory updateAccessory = (Accessory)row;
-                if (updateAccessory.Id > 0)
+                foreach (Accessory accessory in listAccessory)
                 {
-                    foreach (Accessory accessory in listAccessory)
+                    if (accessory.Id == updateAccessory.Id)
                     {
-                        if (accessory.Id == updateAccessory.Id)
-                        {
-                            output = updateAccessory.Id;
-                            accessory.Name = updateAccessory.Name;
-                        }
+                        output = updateAccessory.Id;
+                        accessory.Name = updateAccessory.Name;
                     }
                 }
             }
@@ -211,33 +218,28 @@ namespace OOP.DAO
             bool output = false;
             if (name.Equals("Category"))
             {
-                Category deleteCategory = (Category)row;
-                if (deleteCategory.Id > 0)
+                Category deleteCategory = (Category)row;                
+                foreach (Category category in listCategory)
                 {
-                    foreach (Category category in listCategory)
+                    if (category.Id == deleteCategory.Id)
                     {
-                        if (category.Id == deleteCategory.Id)
-                        {
-                            listCategory.Remove(category);
-                            output = true;
-                            break; // đang lỗi khi remove xong quay lại list lỗi collection-was-modified-enumeration-operation-may-not-execute
-                        }
+                        listCategory.Remove(category);
+                        output = true;
+                        break; // đang lỗi khi remove xong quay lại list lỗi collection-was-modified-enumeration-operation-may-not-execute
                     }
                 }
+                
             }
             else if (name.Equals("Product"))
             {
                 Product deleteProduct = (Product)row;
-                if (deleteProduct.Id > 0)
+                foreach (Product product in listProduct)
                 {
-                    foreach (Product product in listProduct)
+                    if (product.Id == deleteProduct.Id)
                     {
-                        if (product.Id == deleteProduct.Id)
-                        {
-                            listProduct.Remove(product);
-                            output = true;
-                            break;
-                        }
+                        listProduct.Remove(product);
+                        output = true;
+                        break;
                     }
                 }
 
@@ -245,16 +247,13 @@ namespace OOP.DAO
             else if (name.Equals("Accessory"))
             {
                 Accessory updateAccessory = (Accessory)row;
-                if (updateAccessory.Id > 0)
+                foreach (Accessory accessory in listAccessory)
                 {
-                    foreach (Accessory accessory in listAccessory)
+                    if (accessory.Id == updateAccessory.Id)
                     {
-                        if (accessory.Id == updateAccessory.Id)
-                        {
-                            listAccessory.Remove(accessory);
-                            output = true;
-                            break;
-                        }
+                        listAccessory.Remove(accessory);
+                        output = true;
+                        break;
                     }
                 }
             }
@@ -283,7 +282,13 @@ namespace OOP.DAO
             }
         }
 
-        public Object findById(String name, int id)
+        /**
+         * Get object in name object and id 
+         * 
+         * @param name ( name Table) and id (id row in table)
+         * @return Object
+         */
+        public Object findTableById(String name, int id)
         {
             Object output = new Object();
             if (name.Equals("Category"))
@@ -318,5 +323,6 @@ namespace OOP.DAO
             }
             return output;
         }
+
     }
 }

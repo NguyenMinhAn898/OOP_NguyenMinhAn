@@ -14,6 +14,9 @@ namespace OOP.Demo
         public DatabaseDemo() { }
         public void insertTableTest() 
         {
+            database.insertTable(new Category(15, "Nha hang"));
+            database.insertTable(new Accessory(11, "Cua so"));
+            database.insertTable(new Product(13, "Nha", 5));
         }
         public void selectTableTest() { }
         public bool updateTableTest(String name, Object rowUpdate )
