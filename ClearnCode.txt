@@ -1,0 +1,22 @@
+Clearn code
+- Đặt tên
+	+ Tên minh bạch rõ ràng, chuẩn quy định
+	+ Tên theo mục đích sử dụng
+	+ Tên có thể tìm kiếm trong quá trình code -> dễ sửa tìm kiếm
+	+ Tên không nên mã hóa
+	+ Tên class nên là danh từ cụm danh từ
+	+ Tên method nên có động từ hoặc cụng động từ mô tả 1 phần chức năng của method đó như getList, deleteCategory, UpdateCategory
+	+ Không chơi chữ, tiếng lóng ,...
+
+- Hàm
+	+ Chúng phải nhỏ và nhỏ hơn nữa 
+	+ Mỗi hàm sử lý 1 chức năng	
+	+ Mỗi hàm duy trì ở 1 cấp độ trừu tượng hóa
+	+ Thứ tự ưu tiên các hàm
+	+ Nên đặt try catch sử lý lỗi
+
+- Định dạng
+	+ Code phải fomat, đẹp
+	+ Comment đúng nghĩa, giải thích ngắn gọn súc tích
+	+ Không có comment thừa
+	+ Comment chuẩn mực
