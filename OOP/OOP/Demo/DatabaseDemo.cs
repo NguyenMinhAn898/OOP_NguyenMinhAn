@@ -18,7 +18,7 @@ namespace OOP.Demo
         public void selectTableTest() { }
         public bool updateTableTest(String name, Object rowUpdate )
         {
-            int checkUpdate = Database.updateTable(name, rowUpdate);           
+            int checkUpdate = database.updateTable(name, rowUpdate);           
 
             return checkUpdate > 0 ? true : false;
         }

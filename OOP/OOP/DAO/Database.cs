@@ -211,30 +211,32 @@ namespace OOP.DAO
             bool output = false;
             if (name.Equals("Category"))
             {
-                Category updateCategory = (Category)row;
-                if (updateCategory.Id > 0)
+                Category deleteCategory = (Category)row;
+                if (deleteCategory.Id > 0)
                 {
                     foreach (Category category in listCategory)
                     {
-                        if (category.Id == updateCategory.Id)
+                        if (category.Id == deleteCategory.Id)
                         {
                             listCategory.Remove(category);
                             output = true;
+                            break; // đang lỗi khi remove xong quay lại list lỗi collection-was-modified-enumeration-operation-may-not-execute
                         }
                     }
                 }
             }
             else if (name.Equals("Product"))
             {
-                Product updateProduct = (Product)row;
-                if (updateProduct.Id > 0)
+                Product deleteProduct = (Product)row;
+                if (deleteProduct.Id > 0)
                 {
                     foreach (Product product in listProduct)
                     {
-                        if (product.Id == updateProduct.Id)
+                        if (product.Id == deleteProduct.Id)
                         {
                             listProduct.Remove(product);
                             output = true;
+                            break;
                         }
                     }
                 }
@@ -251,6 +253,7 @@ namespace OOP.DAO
                         {
                             listAccessory.Remove(accessory);
                             output = true;
+                            break;
                         }
                     }
                 }
@@ -278,6 +281,42 @@ namespace OOP.DAO
             {
                 listAccessory.Clear();                
             }
+        }
+
+        public Object findById(String name, int id)
+        {
+            Object output = new Object();
+            if (name.Equals("Category"))
+            {
+                foreach (Category category in listCategory)
+                {
+                    if (category.Id == id)
+                    {
+                        output = category;
+                    }
+                }                
+            }
+            else if (name.Equals("Product"))
+            {
+                foreach (Product product in listProduct)
+                {
+                    if (product.Id == id)
+                    {
+                        output = product;
+                    }
+                }                
+            }
+            else if (name.Equals("Accessory"))
+            {                
+                foreach (Accessory accessory in listAccessory)
+                {
+                    if (accessory.Id == id)
+                    {
+                        output = accessory;
+                    }
+                }                
+            }
+            return output;
         }
     }
 }
