@@ -9,35 +9,69 @@ namespace OOP.DAO
 {
     class AccessoryDAO : BaseDAO<Accessory>
     {
+        private static List<Accessory> listAccessory = new List<Accessory>();
         private Database database = Database.getDatabase;
         public override bool insertTable(Accessory insertRow)
         {
-            throw new NotImplementedException();
+            listAccessory.Add(insertRow);
+            return true;            
         }
 
         public override bool deleteRow(Accessory rowDelete)
         {
-            throw new NotImplementedException();
+            foreach(Accessory accessory in listAccessory)
+            {
+                if(accessory.Id == rowDelete.Id)
+                {
+                    listAccessory.Remove(accessory);
+                    return true;
+                }
+            }
+            return false;
         }
 
         public override List<Accessory> findAll()
         {
-            throw new NotImplementedException();
+            if (listAccessory == null)
+                listAccessory = new List<Accessory>();
+            return listAccessory;
         }
 
         public override List<Accessory> findAll(string name)
-        {
-            throw new NotImplementedException();
+        {            
+            if (listAccessory == null)
+            {
+                listAccessory = new List<Accessory>();
+                return listAccessory;
+            }
+            List<Accessory> output = new List<Accessory>();
+            foreach (Accessory accessory in listAccessory)
+            {
+                if (accessory.Name.Equals(name))
+                {
+                    output.Add(accessory);
+                }
+            }
+            return output;
         }       
 
-        public override void truncateTable(Accessory table)
+        public override void truncateTable()
         {
-            throw new NotImplementedException();
+            listAccessory.Clear();
         }
 
         public override Accessory updateTable(Accessory rowUpdate)
         {
-            throw new NotImplementedException();
+            bool checkUpdate = false;
+            foreach(Accessory accessory in listAccessory)
+            {
+                if(accessory.Id == rowUpdate.Id)
+                {
+                    accessory.Name = rowUpdate.Name;
+                    checkUpdate = true;
+                }
+            }
+            return checkUpdate ? rowUpdate : new Accessory();
         }
     }
 }
