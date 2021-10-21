@@ -1,0 +1,17 @@
+1. Extend, implement
+	+ Extend : Kế thừa và mở rộng 1 class
+	+ Implements : Thực hiện , định nghĩa các phương thức được khai báo từ một hoặc nhiều interface
+
+2. Public, Protected, Private
+	+ Public : Không có bất kỳ giới hạn nào khi truy cập vào các thành viên công khai
+	+ Protected : Truy cập bị giới hạn trong phạm vi định nghĩa của Class và bất kỳ các class con thừa kế từ class này
+	+ Private : Truy cập bị hạn chế trong phạm vi của định nghĩa Class. Đây là loại phạm vi truy cập mặc định nếu không được chính thức chỉ định
+
+3. Interface, Asbclass
+	+ Abstract class : là một class cha cho tất cả các class có cùng bản chất. Bản chất ở đây được hiểu là kiểu, loại, nhiệm vụ của class. 
+		Hai class cùng hiện thực một interface có thể hoàn toàn khác nhau về bản chất
+	+ Interface :là một chức năng mà bạn có thể thêm và bất kì class nào. Từ chức năng ở đây không đồng nghĩa với phương thức (hoặc hàm). 
+		Interface có thể bao gồm nhiều hàm/phương thức và tất cả chúng cùng phục vụ cho một chức năng 
+
+4. Singleton parten
+	

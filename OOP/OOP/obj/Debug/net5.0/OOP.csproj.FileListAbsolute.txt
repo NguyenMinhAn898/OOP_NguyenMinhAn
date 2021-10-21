@@ -1,0 +1,5 @@
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\obj\Debug\net5.0\OOP.csproj.AssemblyReference.cache
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\obj\Debug\net5.0\OOP.GeneratedMSBuildEditorConfig.editorconfig
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\obj\Debug\net5.0\OOP.AssemblyInfoInputs.cache
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\obj\Debug\net5.0\OOP.AssemblyInfo.cs
+F:\MyWork\AspNet\DevFast\Learning\OOP\OOP\OOP\obj\Debug\net5.0\OOP.csproj.CoreCompileInputs.cache
