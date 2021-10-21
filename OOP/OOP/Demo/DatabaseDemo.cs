@@ -10,11 +10,13 @@ namespace OOP.Demo
 {
     class DatabaseDemo
     {
+        public Database database = Database.getDatabase;        
+        public DatabaseDemo() { }
         public void insertTableTest() 
         {
         }
         public void selectTableTest() { }
-        public static bool updateTableTest(String name, Object rowUpdate )
+        public bool updateTableTest(String name, Object rowUpdate )
         {
             int checkUpdate = Database.updateTable(name, rowUpdate);           
 
@@ -22,21 +24,21 @@ namespace OOP.Demo
         }
         public void deleteTableTest() { }
         public void truncateTableTest() { }
-        public static void initDatabase() 
+        public void initDatabase() 
         {
             for(int i = 1; i<= 10; i++)
             {
                 Object newCategory = new Category(i, "Hoa qua " + i);
                 Object newPoduct = new Product(i, "Tao tau " + i, i);
                 Object newAccessory = new Accessory(i, "Phu kien " + i);
-                Database.insertTable("Category", newCategory);
-                Database.insertTable("Product", newPoduct);
-                Database.insertTable("Accessory", newAccessory);
+                database.insertTable("Category", newCategory);
+                database.insertTable("Product", newPoduct);
+                database.insertTable("Accessory", newAccessory);
             }
         } 
-        public static void printTableTest() 
+        public void printTableTest() 
         {
-            List<Product> listProduct = Database.getListProduct;
+            List<Product> listProduct = database.getListProduct;
             Console.WriteLine("Danh sach Product : ");
             foreach(Product product in listProduct)
             {
@@ -44,10 +46,17 @@ namespace OOP.Demo
             }
 
             Console.WriteLine("Danh sach Category : ");
-            List<Category> listCategory = Database.getListCategory;
+            List<Category> listCategory = database.getListCategory;
             foreach(Category category in listCategory)
             {
                 Console.WriteLine("- ID : " + category.Id + ", Name : " + category.Name);
+            }
+
+            Console.WriteLine("Danh sach Ass : ");
+            List<Accessory> listAccessory = database.getListAccessory;
+            foreach (Accessory accessory in listAccessory)
+            {
+                Console.WriteLine("- ID : " + accessory.Id + ", Name : " + accessory.Name);
             }
         }        
     }

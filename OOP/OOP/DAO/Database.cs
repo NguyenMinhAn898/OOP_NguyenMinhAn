@@ -25,7 +25,7 @@ namespace OOP.DAO
         private static List<Category> listCategory  = new List<Category>();
         private static List<Accessory> listAccessory = new List<Accessory>() ;
 
-        public static List<Product> getListProduct
+        public List<Product> getListProduct
         {
             get
             {
@@ -34,7 +34,7 @@ namespace OOP.DAO
                 return listProduct;
             }
         }
-        public static List<Category> getListCategory
+        public List<Category> getListCategory
         {
             get
             {
@@ -43,7 +43,7 @@ namespace OOP.DAO
                 return listCategory;
             }
         }
-        public static List<Accessory> getListAccessory
+        public List<Accessory> getListAccessory
         {
             get
             {
@@ -53,7 +53,7 @@ namespace OOP.DAO
             }
         }
 
-        public static int insertTable(String name, Object row)
+        public int insertTable(String name, Object row)
         {
             if (name.Equals("Category"))
             {
@@ -81,7 +81,7 @@ namespace OOP.DAO
          * @param where (ten can tim trong du lieu)
          * @return array (Danh sach du lieu tim duoc (success) hoac new list<Object> (khong ton tai du lieu) hoac where isempy -> all list)
          */
-        public static List<Object> selectTable(String name, String where)
+        public List<Object> selectTable(String name, String where)
         {
             List<Object> output = new List<Object>();
             if (name.Equals("Category"))
@@ -146,7 +146,7 @@ namespace OOP.DAO
          * @param row (Object table moi)
          * @return int (id cua table duoc cap nhap (success) hoac 0 (fail))
          */
-        public static int updateTable(String name, Object row)
+        public int updateTable(String name, Object row)
         {
             int output = 0;
             if (name.Equals("Category"))
@@ -206,7 +206,7 @@ namespace OOP.DAO
          * @param row (Object table)
          * @return true (success) or false (fail)
          */
-        public static bool deleteTable(String name, Object row)
+        public bool deleteTable(String name, Object row)
         {
             bool output = false;
             if (name.Equals("Category"))
@@ -264,7 +264,7 @@ namespace OOP.DAO
          * @param name ( name Table)
          * @return 
          */
-        public static void truncateTable(String name)
+        public void truncateTable(String name)
         {
             if (name.Equals("Category"))
             {

@@ -10,12 +10,12 @@ namespace OOP.DAO
 {
     class CategoryDAO
     {
-        public static bool insert(Category category)
+        private String CategoryName = "Category";
+        private static Database database = Database.getDatabase;
+        public bool insert(Category category)
         {
-            return false;
-            //Database<Category> db ;
-            //int id = db.insertTable(new Category(), category);
-            //return id > 0 ? true : false;
+            int checkInsert = database.insertTable(CategoryName, category);
+            return checkInsert > 0 ? true : false;
         }
     }
 }

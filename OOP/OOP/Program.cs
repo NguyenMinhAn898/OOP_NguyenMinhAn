@@ -7,23 +7,40 @@ namespace OOP
 {
     class Program
     {
-        private Category category;
-        private CategoryDAO categoryDAO;  
+        private static DatabaseDemo databaseDemo = new DatabaseDemo();
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello World! OOP");
+            fetchData();
+            Bai7();
+
+            disPlayAll();   
+        }
+
+        public static void Bai7()
+        {
+            // Câp nhap category
             String name = "Category";
             Object CategoryUpdate = new Category(5, "Trai cay");
-            DatabaseDemo.initDatabase();
 
-            if (DatabaseDemo.updateTableTest(name, CategoryUpdate)) {
+            if (databaseDemo.updateTableTest(name, CategoryUpdate))
+            {
                 Console.WriteLine("Cập nhập thành công");
             }
-            else {
+            else
+            {
                 Console.WriteLine("Cập nhập thất bại");
-            }
+            }            
+        }
 
-            DatabaseDemo.printTableTest();
+        public static void disPlayAll()
+        {
+            databaseDemo.printTableTest();
+        }
+
+        public static void fetchData()
+        {
+            databaseDemo.initDatabase();
         }
         
     }   
