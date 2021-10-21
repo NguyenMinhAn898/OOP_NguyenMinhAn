@@ -8,36 +8,8 @@ namespace OOP
 {
     class Product
     {
-        public int Id { 
-            get 
-            {
-                return Id;
-            }
-            set
-            { 
-                this.Id = value;
-            } 
-        }
-        public String Name {
-            get
-            {
-                return Name;
-            }
-            set
-            {
-                this.Name = value;
-            }
-        }
-        public int CategoryId {
-            get
-            {
-                return CategoryId;
-            }
-            set
-            {
-                this.CategoryId = value;
-            }
-        }
-
+        public int Id { get; set; }
+        public String Name { get; set; }
+        public int CategoryId { get; set; }
     }
 }

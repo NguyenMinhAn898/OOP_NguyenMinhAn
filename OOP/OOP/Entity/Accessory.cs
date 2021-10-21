@@ -8,27 +8,7 @@ namespace OOP.Entity
 {
     class Accessory
     {
-        public int Id
-        {
-            get
-            {
-                return Id;
-            }
-            set
-            {
-                this.Id = value;
-            }
-        }
-        public String Name
-        {
-            get
-            {
-                return Name;
-            }
-            set
-            {
-                this.Name = value;
-            }
-        }
+        public int Id { get; set; }
+        public String Name { get; set; }
     }
 }
