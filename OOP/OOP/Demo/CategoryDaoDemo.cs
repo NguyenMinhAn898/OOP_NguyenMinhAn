@@ -14,7 +14,7 @@ namespace OOP.Demo
         public void insertTest()
         {
             Category newCategory = new Category(12, "Cay canh");
-            if (categoryDAO.insert(newCategory))
+            if (categoryDAO.insertTable(newCategory))
             {
                 Console.WriteLine("Them moi thanh cong");
             }
@@ -26,17 +26,17 @@ namespace OOP.Demo
         }
         public List<Category> findAllTest()
         {
-            return categoryDAO.findListCategory();
+            return categoryDAO.findAll();
 
         }
 
         public List<Category> findListTest(String name)
         {
-            return categoryDAO.findListCategory(name);
+            return categoryDAO.findAll(name);
         }
         public int updateTest(Category category)
         {
-            Category categoryUpdate = categoryDAO.udpateCategory(category);
+            Category categoryUpdate = categoryDAO.updateTable(category);
             if (categoryUpdate != null)
                 return categoryUpdate.Id;
             return 0;
@@ -45,7 +45,11 @@ namespace OOP.Demo
         {
             if (category.Id <= 0)
                 return false;
-            return categoryDAO.deleteCategory(category);
+            return categoryDAO.deleteRow(category);
+        }
+        public bool deleteTest(int id)
+        {
+            return categoryDAO.deleteRow(id);
         }
         public void truncateTest()
         {

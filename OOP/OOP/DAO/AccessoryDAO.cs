@@ -9,41 +9,25 @@ namespace OOP.DAO
 {
     class AccessoryDAO : BaseDAO<Accessory>
     {
+        public AccessoryDAO() { }
+
         private static List<Accessory> listAccessory = new List<Accessory>();
+
         private Database database = Database.getDatabase;
+
         public override bool insertTable(Accessory insertRow)
         {
             listAccessory.Add(insertRow);
             return true;            
         }
 
-        public override bool deleteRow(Accessory rowDelete)
-        {
-            foreach(Accessory accessory in listAccessory)
-            {
-                if(accessory.Id == rowDelete.Id)
-                {
-                    listAccessory.Remove(accessory);
-                    return true;
-                }
-            }
-            return false;
-        }
-
         public override List<Accessory> findAll()
         {
-            if (listAccessory == null)
-                listAccessory = new List<Accessory>();
             return listAccessory;
         }
 
         public override List<Accessory> findAll(string name)
-        {            
-            if (listAccessory == null)
-            {
-                listAccessory = new List<Accessory>();
-                return listAccessory;
-            }
+        {
             List<Accessory> output = new List<Accessory>();
             foreach (Accessory accessory in listAccessory)
             {
@@ -54,11 +38,6 @@ namespace OOP.DAO
             }
             return output;
         }       
-
-        public override void truncateTable()
-        {
-            listAccessory.Clear();
-        }
 
         public override Accessory updateTable(Accessory rowUpdate)
         {
@@ -73,5 +52,24 @@ namespace OOP.DAO
             }
             return checkUpdate ? rowUpdate : new Accessory();
         }
+
+        public override bool deleteRow(Accessory rowDelete)
+        {
+            foreach (Accessory accessory in listAccessory)
+            {
+                if (accessory.Id == rowDelete.Id)
+                {
+                    listAccessory.Remove(accessory);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public override void truncateTable()
+        {
+            listAccessory.Clear();
+        }
+
     }
 }

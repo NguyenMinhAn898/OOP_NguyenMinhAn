@@ -17,7 +17,6 @@ namespace OOP
             Bai7();
             Bai9();
             
-            disPlayAll();   
         }
 
         public static void Bai7()
@@ -63,7 +62,7 @@ namespace OOP
             }
 
             Console.WriteLine("\n++ Xoa danh muc id = 7");
-            bool checkDeleteCategory = categoryDaoDemo.deleteTest(new Category(1, "Khong quan trong name"));
+            bool checkDeleteCategory = categoryDaoDemo.deleteTest(new Category(7, "Quan trong phai dung object"));
             if (checkDeleteCategory)
             {
                 Console.WriteLine("Xoa thanh cong id = 7");
@@ -71,14 +70,16 @@ namespace OOP
             else
             {
                 Console.WriteLine("Fail");
+                Console.WriteLine("Xoa tiep bang id");
+                if (categoryDaoDemo.deleteTest(7))
+                {
+                    Console.WriteLine("Xoas thanh cong");
+                }
             }
 
+            Console.WriteLine("\n++ Danh sach cuoi cung :");
+            categoryDaoDemo.display(categoryDaoDemo.findAllTest());
 
-        }
-
-        public static void disPlayAll()
-        {
-            databaseDemo.printTableTest();
         }
 
         public static void fetchData()

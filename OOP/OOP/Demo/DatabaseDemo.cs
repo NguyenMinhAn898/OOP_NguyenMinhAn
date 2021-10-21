@@ -10,7 +10,9 @@ namespace OOP.Demo
 {
     class DatabaseDemo
     {
-        public Database database = Database.getDatabase;        
+        public Database database = Database.getDatabase;
+
+        private CategoryDAO categoryDAO = new CategoryDAO();
         public DatabaseDemo() { }
         public void insertTableTest() 
         {
@@ -31,10 +33,10 @@ namespace OOP.Demo
         {
             for(int i = 1; i<= 10; i++)
             {
-                Object newCategory = new Category(i, "Hoa qua " + i);
+                categoryDAO.insertTable(new Category(i, "Hoa qua " + i));
+
                 Object newPoduct = new Product(i, "Tao tau " + i, i);
                 Object newAccessory = new Accessory(i, "Phu kien " + i);
-                database.insertTable("Category", newCategory);
                 database.insertTable("Product", newPoduct);
                 database.insertTable("Accessory", newAccessory);
             }

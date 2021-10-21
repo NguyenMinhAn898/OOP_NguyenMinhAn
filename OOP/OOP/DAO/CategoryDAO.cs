@@ -8,51 +8,72 @@ using System.Threading.Tasks;
 
 namespace OOP.DAO
 {
-    class CategoryDAO
+    class CategoryDAO : BaseDAO<Category>
     {
         public CategoryDAO() { }
-        private String CategoryName = "Category";
+
+        private static List<Category> listCategory = new List<Category>();
+
         private Database database = Database.getDatabase;
-        public bool insert(Category category)
+
+        public override bool insertTable(Category insertRow)
         {
-            int checkInsert = database.insertTable(CategoryName, category);
-            return checkInsert > 0 ? true : false;
+            listCategory.Add(insertRow);
+            return true;
         }
-        public List<Category> findListCategory(String name = null)
+
+        public override List<Category> findAll()
+        {
+            return listCategory;
+        }
+
+        public override List<Category> findAll(string name)
         {
             List<Category> output = new List<Category>();
-            if (String.IsNullOrEmpty(name))
+            foreach(Category category in listCategory)
             {
-                output = database.getListCategory;
-            }
-            else
-            {
-                output = database.selectTable(CategoryName, name).Cast<Category>().ToList();
+                if (category.Name.Equals(name))
+                {
+                    output.Add(category);
+                }
             }
             return output;
         }
-        public Category udpateCategory(Category category)
-        {
-            if (category.Id <= 0)
-                return new Category();
 
-            int checkUpdate = database.updateTable(CategoryName, category);
-            if (checkUpdate > 0)
-                return category;
-            return new Category();
-        }
-        public bool deleteCategory(Category category)
+        public override Category updateTable(Category rowUpdate)
         {
-            if (category.Id <= 0)
-                return false;
-            return database.deleteTable(CategoryName, category);
+            bool checkUpdate = false;
+            foreach(Category category in listCategory)
+            {
+                if(category.Id == rowUpdate.Id)
+                {
+                    category.Name = rowUpdate.Name;
+                    checkUpdate = true;
+                }
+            }
+            return checkUpdate ? rowUpdate : new Category();
         }
 
-        public Category findCategoryById(int id)
+        public override bool deleteRow(Category rowDelete)
         {
-            if (id <= 0)
-                return new Category();
-            return (Category)database.findTableById(CategoryName, id);
+            return listCategory.Remove(rowDelete);
+        }
+        public bool deleteRow(int id)
+        {
+            foreach (Category category in listCategory)
+            {
+                if (category.Id == id)
+                {
+                    listCategory.Remove(category);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public override void truncateTable()
+        {
+            listCategory.Clear();
         }
     }
 }
