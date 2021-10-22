@@ -25,6 +25,7 @@ namespace OOP.DAO
         private static List<Category> listCategory  = new List<Category>();
         private static List<Accessory> listAccessory = new List<Accessory>() ;
 
+        // Get list Product
         public List<Product> getListProduct
         {
             get
@@ -32,6 +33,8 @@ namespace OOP.DAO
                 return listProduct;
             }
         }
+
+        // Get list Category
         public List<Category> getListCategory
         {
             get
@@ -39,6 +42,8 @@ namespace OOP.DAO
                 return listCategory;
             }
         }
+
+        // Get list Accessory
         public List<Accessory> getListAccessory
         {
             get
@@ -47,41 +52,70 @@ namespace OOP.DAO
             }
         }
 
+        /**
+         * Insert row in list
+         * 
+         * @param name : string name table
+         * @param row : object colum table
+         * @return id : id of object insert || 0
+         */
         public int insertTable(String name, Object row)
         {
             if (name.Equals("Category"))
             {
-                Category category = (Category)row;
-                listCategory.Add(category);
-                return listCategory.Count;
+                Category newCategory = (Category)row;
+                listCategory.Add(newCategory);
+                return newCategory.Id;
             } else if (name.Equals("Product"))
             {
-                Product product = (Product)row;
-                listProduct.Add(product);
-                return listProduct.Count;
+                Product newProduct = (Product)row;
+                listProduct.Add(newProduct);
+                return newProduct.Id;
 ;           } else if (name.Equals("Accessory"))
             {
                 Accessory newAccessory = (Accessory)row;
                 listAccessory.Add(newAccessory);
-                return listAccessory.Count;
+                return newAccessory.Id;
             }
             return 0;
         }
-        public int insertTable(Category category)
+
+        /**----- Overload InsertTale -----**/
+
+        /// <summary>
+        /// Insert one row in Table Category
+        /// </summary>
+        /// <param name="newCategory">object Category insert</param>
+        /// <returns>id new row</returns>
+        public int insertTable(Category newCategory)
         {
-            listCategory.Add(category);
-            return listCategory.Count;
+            listCategory.Add(newCategory);
+            return newCategory.Id;
         }
-        public int insertTable(Product product)
+
+        /// <summary>
+        /// Insert on row in table Product
+        /// </summary>
+        /// <param name="newProduct">object product is new product </param>
+        /// <returns></returns>
+        public int insertTable(Product newProduct)
         {
-            listProduct.Add(product);
-            return listProduct.Count;
+            listProduct.Add(newProduct);
+            return newProduct.Id;
         }
-        public int insertTable(Accessory accessory)
+
+        /// <summary>
+        /// Insert one row in Accessory
+        /// </summary>
+        /// <param name="newAccessory"></param>
+        /// <returns></returns>
+        public int insertTable(Accessory newAccessory)
         {
-            listAccessory.Add(accessory);
-            return listAccessory.Count;
+            listAccessory.Add(newAccessory);
+            return newAccessory.Id;
         }
+
+        /**----- End Overload InsertTale -----**/
 
         /**
          * Get list row in table
@@ -149,7 +183,7 @@ namespace OOP.DAO
         }
 
         /**---- Overload SelectTable ----**/
-        /*
+        /**
          * Select list category wit object is Category
          * 
          * @Param input is object Category with name is keyword search
@@ -215,7 +249,7 @@ namespace OOP.DAO
          * 
          * @param name : Table name 
          * @param row  : Object table update
-         * @return int : id row update 
+         * @return ouput : id row update 
          */
         public int updateTable(String name, Object row)
         {
@@ -300,7 +334,7 @@ namespace OOP.DAO
         }
 
         /**
-         * Xoa mot ban ghi trong danh sach theo name table va Object truyen vao
+         * Delete row in table
          * 
          * @param name ( name Table)
          * @param row (Object table)
@@ -388,8 +422,9 @@ namespace OOP.DAO
             }
             return false;
         }
+
         /**
-         * Xoa toan bo danh sach theo name table
+         * Truncate table
          * 
          * @param name ( name Table)
          * @return 
