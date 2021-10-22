@@ -8,12 +8,7 @@ namespace OOP.Entity
 {
     abstract class BaseRow:IEntity
     {
-        public abstract int getId();
-
-        public abstract string getName();
-
-        public abstract void setId(int id);
-
-        public abstract void setName(string name);
+        public int Id {get; set;}
+        public string Name { get; set; }
     }
 }

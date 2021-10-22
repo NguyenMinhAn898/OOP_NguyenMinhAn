@@ -9,10 +9,7 @@ namespace OOP
 {
     class Product : BaseRow,IEntity
     {
-        private int Id;
-        private String Name;
         private int categoryId;
-
         public Product() { }
 
         public Product(int id, String name)
@@ -27,26 +24,7 @@ namespace OOP
             Name = name;
             categoryId = categoryid;
         }
-
-        public override int getId()
-        {
-            return Id;
-        }
-
-        public override string getName()
-        {
-            return Name;
-        }
-
-        public override void setId(int id)
-        {
-            Id = id;   
-        }
-
-        public override void setName(string name)
-        {
-            Name = name;
-        }
+        
         public int getCategoryId()
         {
             return categoryId;

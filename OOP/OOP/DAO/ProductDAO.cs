@@ -7,7 +7,7 @@ using OOP.DAO;
 
 namespace OOP.DAO
 {
-    class ProductDAO : BaseDAO<Product>
+    class ProductDAO : BaseDAO<Product>,IDao<Product>
     {
         public ProductDAO() { }
 

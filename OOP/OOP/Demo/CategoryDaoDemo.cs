@@ -38,12 +38,12 @@ namespace OOP.Demo
         {
             Category categoryUpdate = categoryDAO.updateTable(category);
             if (categoryUpdate != null)
-                return categoryUpdate.getId();
+                return categoryUpdate.Id;
             return 0;
         }
         public bool deleteTest(Category category)
         {
-            if (category.getId() <= 0)
+            if (category.Id <= 0)
                 return false;
             return categoryDAO.deleteRow(category);
         }
@@ -61,14 +61,14 @@ namespace OOP.Demo
             Console.WriteLine("+ Danh sach Danh muc : ");
             foreach(Category category in listCategory)
             {
-                Console.WriteLine("  -Id : " + category.getId() + " , Name : " + category.getName());
+                Console.WriteLine("  -Id : " + category.Id + " , Name : " + category.Name);
             }
             Console.WriteLine("");
         }
         public void display(Category category)
         {
             Console.WriteLine("+ Danh muc : ");
-            Console.WriteLine("  -Id : " + category.getId() + " , Name : " + category.getName() +"\n");
+            Console.WriteLine("  -Id : " + category.Id + " , Name : " + category.Name +"\n");
         }
     }
 }

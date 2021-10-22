@@ -8,9 +8,19 @@
 	+ Private : Truy cập bị hạn chế trong phạm vi của định nghĩa Class. Đây là loại phạm vi truy cập mặc định nếu không được chính thức chỉ định
 
 3. Interface, Asbclass
-	+ Abstract class : - là một class cha cho tất cả các class có cùng bản chất. Bản chất ở đây được hiểu là kiểu, loại, nhiệm vụ của class. 
-				Hai class cùng hiện thực một interface có thể hoàn toàn khác nhau về bản chất.
-			   - Khi một nhóm đối tượng có cùng bản chất kế thừa từ một class thì sử dụng abstract class.
+	+ Abstract class : 
+		- là một class cha cho tất cả các class có cùng bản chất. Bản chất ở đây được hiểu là kiểu, loại, nhiệm vụ của class. 
+			Hai class cùng hiện thực một interface có thể hoàn toàn khác nhau về bản chất.
+		- Khi một nhóm đối tượng có cùng bản chất kế thừa từ một class thì sử dụng abstract class.
+		- Nó là một class
+		- Nó chứa phương thức trừu tượng
+		- Các class khi kế thừa một abstract class sẽ phải định nghĩa lại các phương thức trừu tượng của abstract class
+		- Một class chỉ có thể kế thừa 1 lớp trừu tượng
+		- không thể khởi tạo đối tượng của abstract class
+		- Không hỗ trợ đa kế thừa.
+		- Phương thức abstract của abstract class không được phép khai báo nội dung phương thức. Nó chỉ có thể định nghĩa tên cũng như các tham số đầu 
+		- Mức truy cập các hàm của abstract phải ở public hoặc protected để lớp kế thừa có thể định nghĩa lại và các thuộc tính của lớp abstract không 
+			được khai báo abstract
 
 	+ Interface :      - là một chức năng mà bạn có thể thêm vào bất kì class nào. Từ chức năng ở đây không đồng nghĩa với phương thức (hoặc hàm). 
 				Interface có thể bao gồm nhiều hàm/phương thức và tất cả chúng cùng phục vụ cho một chức năng 

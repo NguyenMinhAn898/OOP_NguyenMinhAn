@@ -15,7 +15,7 @@ namespace OOP
             Console.WriteLine("Hello World! OOP");
             fetchData();
             Bai7();
-            Bai9();
+            Category();
             
         }
 
@@ -35,9 +35,9 @@ namespace OOP
             }            
         }
 
-        public static void Bai9()
+        public static void Category()
         {
-            Console.WriteLine("+++++ Bai 9 +++++");
+            Console.WriteLine("+++++ Category +++++");
             Console.WriteLine("\n++ Insert : ");
             categoryDaoDemo.insertTest();
 
@@ -75,6 +75,10 @@ namespace OOP
                 {
                     Console.WriteLine("Xoas thanh cong");
                 }
+                else
+                {
+                    Console.WriteLine("Xoa that bai");
+                }
             }
 
             Console.WriteLine("\n++ Danh sach cuoi cung :");
@@ -82,6 +86,10 @@ namespace OOP
 
         }
 
+        public static void Accessory()
+        {
+
+        }
         public static void fetchData()
         {
             databaseDemo.initDatabase();

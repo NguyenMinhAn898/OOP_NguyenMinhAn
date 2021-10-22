@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP.DAO
 {
-    abstract class BaseDAO<T>
+    abstract class BaseDAO<T>:IDao<T>
     {
         public abstract bool insertTable(T insertRow);
         public abstract List<T> findAll();
@@ -14,5 +14,6 @@ namespace OOP.DAO
         public abstract T updateTable(T rowUpdate);
         public abstract bool deleteRow(T rowDelete);
         public abstract void truncateTable();
+
     }
 }

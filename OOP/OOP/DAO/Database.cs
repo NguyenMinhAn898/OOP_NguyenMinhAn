@@ -105,7 +105,7 @@ namespace OOP.DAO
                 {
                     foreach (Category category in listCategory)
                     {
-                        if (category.getName().Length > 0 && category.getName().Equals(where))
+                        if (category.Name.Length > 0 && category.Name.Equals(where))
                         {
                             output.Add((Object)category);
                         }
@@ -122,7 +122,7 @@ namespace OOP.DAO
                 {
                     foreach (Product product in listProduct)
                     {
-                        if (product.getName().Length > 0 && product.getName().Equals(where))
+                        if (product.Name.Length > 0 && product.Name.Equals(where))
                         {
                             output.Add((Object)product);
                         }
@@ -139,7 +139,7 @@ namespace OOP.DAO
                 {
                     foreach (Accessory accessory in listAccessory)
                     {
-                        if (accessory.getName().Length > 0 && accessory.getName().Equals(where))
+                        if (accessory.Name.Length > 0 && accessory.Name.Equals(where))
                         {
                             output.Add((Object)accessory);
                         }
@@ -171,10 +171,10 @@ namespace OOP.DAO
                 Category updateCategory = (Category)row;
                 foreach (Category category in listCategory)
                 {
-                    if (category.getId() == updateCategory.getId())
+                    if (category.Id == updateCategory.Id)
                     {
-                        output = updateCategory.getId();
-                        category.setName(updateCategory.getName());
+                        output = updateCategory.Id;
+                        category.Name = updateCategory.Name;
                     }
                 }
             }
@@ -183,10 +183,10 @@ namespace OOP.DAO
                 Product updateProduct = (Product)row;                
                 foreach (Product product in listProduct)
                 {
-                    if(product.getId() == updateProduct.getId())
+                    if(product.Id == updateProduct.Id)
                     {
-                        output = updateProduct.getId();
-                        product.setName(updateProduct.getName());
+                        output = updateProduct.Id;
+                        product.Name = updateProduct.Name;
                         product.setCategoryId(updateProduct.getCategoryId());
                     }
                 }
@@ -196,10 +196,10 @@ namespace OOP.DAO
                 Accessory updateAccessory = (Accessory)row;
                 foreach (Accessory accessory in listAccessory)
                 {
-                    if (accessory.getId() == updateAccessory.getId())
+                    if (accessory.Id == updateAccessory.Id)
                     {
-                        output = updateAccessory.getId();
-                        accessory.setName(updateAccessory.getName());
+                        output = updateAccessory.Id;
+                        accessory.Name =updateAccessory.Name;
                     }
                 }
             }
@@ -210,10 +210,10 @@ namespace OOP.DAO
         {
             foreach(Category category in listCategory)
             {
-                if(category.getId() == categoryUpdate.getId())
+                if(category.Id == categoryUpdate.Id)
                 {
-                    category.setName(categoryUpdate.getName());
-                    return categoryUpdate.getId();
+                    category.Name = categoryUpdate.Name;
+                    return categoryUpdate.Id;
                 }
             }
             return 0;
@@ -223,10 +223,10 @@ namespace OOP.DAO
         {
             foreach (Product product in listProduct)
             {
-                if (product.getId() == productUpdate.getId())
+                if (product.Id == productUpdate.Id)
                 {
-                    product.setName(productUpdate.getName());
-                    return productUpdate.getId();
+                    product.Name = productUpdate.Name;
+                    return productUpdate.Id;
                 }
             }
             return 0;
@@ -236,10 +236,10 @@ namespace OOP.DAO
         {
             foreach (Accessory accessory in listAccessory)
             {
-                if (accessory.getId() == accessoryUpdate.getId())
+                if (accessory.Id == accessoryUpdate.Id)
                 {
-                    accessory.setName(accessoryUpdate.getName());
-                    return accessoryUpdate.getId();
+                    accessory.Name =accessoryUpdate.Name;
+                    return accessoryUpdate.Id;
                 }
             }
             return 0;
@@ -260,7 +260,7 @@ namespace OOP.DAO
                 Category deleteCategory = (Category)row;                
                 foreach (Category category in listCategory)
                 {
-                    if (category.getId() == deleteCategory.getId())
+                    if (category.Id == deleteCategory.Id)
                     {
                         listCategory.Remove(category);
                         output = true;
@@ -274,7 +274,7 @@ namespace OOP.DAO
                 Product deleteProduct = (Product)row;
                 foreach (Product product in listProduct)
                 {
-                    if (product.getId() == deleteProduct.getId())
+                    if (product.Id == deleteProduct.Id)
                     {
                         listProduct.Remove(product);
                         output = true;
@@ -288,7 +288,7 @@ namespace OOP.DAO
                 Accessory updateAccessory = (Accessory)row;
                 foreach (Accessory accessory in listAccessory)
                 {
-                    if (accessory.getId() == updateAccessory.getId())
+                    if (accessory.Id == updateAccessory.Id)
                     {
                         listAccessory.Remove(accessory);
                         output = true;
@@ -303,7 +303,7 @@ namespace OOP.DAO
         {
             foreach(Category category in listCategory)
             {
-                if(category.getId() == categoryDelete.getId())
+                if(category.Id == categoryDelete.Id)
                 {
                     return listCategory.Remove(categoryDelete) ? true : false;
                 }
@@ -315,7 +315,7 @@ namespace OOP.DAO
         {
             foreach (Product product in listProduct)
             {
-                if (product.getId() == productDelete.getId())
+                if (product.Id == productDelete.Id)
                 {
                     return listProduct.Remove(productDelete) ? true : false;                    
                 }
@@ -327,7 +327,7 @@ namespace OOP.DAO
         {
             foreach (Accessory accessory in listAccessory)
             {
-                if (accessory.getId() == accessoryDelete.getId())
+                if (accessory.Id == accessoryDelete.Id)
                 {
                     return listAccessory.Remove(accessoryDelete) ? true : false;
                 }
@@ -382,7 +382,7 @@ namespace OOP.DAO
             {
                 foreach (Category category in listCategory)
                 {
-                    if (category.getId() == id)
+                    if (category.Id == id)
                     {
                         output = category;
                     }
@@ -392,7 +392,7 @@ namespace OOP.DAO
             {
                 foreach (Product product in listProduct)
                 {
-                    if (product.getId() == id)
+                    if (product.Id == id)
                     {
                         output = product;
                     }
@@ -402,7 +402,7 @@ namespace OOP.DAO
             {                
                 foreach (Accessory accessory in listAccessory)
                 {
-                    if (accessory.getId() == id)
+                    if (accessory.Id == id)
                     {
                         output = accessory;
                     }
@@ -415,7 +415,7 @@ namespace OOP.DAO
         {
             foreach(Category category in listCategory)
             {
-                if(category.getId() == input.getId())
+                if(category.Id == input.Id)
                 {
                     return category;
                 }
@@ -426,7 +426,7 @@ namespace OOP.DAO
         {
             foreach (Product product in listProduct)
             {
-                if (product.getId() == input.getId())
+                if (product.Id == input.Id)
                 {
                     return product;
                 }
@@ -437,7 +437,7 @@ namespace OOP.DAO
         {
             foreach(Accessory accessory in listAccessory)
             {
-                if(accessory.getId() == input.getId())
+                if(accessory.Id == input.Id)
                 {
                     return accessory;
                 }

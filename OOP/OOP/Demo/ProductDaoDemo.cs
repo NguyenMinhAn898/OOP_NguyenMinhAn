@@ -36,12 +36,12 @@ namespace OOP.Demo
         {
             Product ProductUpdate = productDAO.updateTable(Product);
             if (ProductUpdate != null)
-                return ProductUpdate.getId();
+                return ProductUpdate.Id;
             return 0;
         }
         public bool deleteTest(Product Product)
         {
-            if (Product.getId() <= 0)
+            if (Product.Id <= 0)
                 return false;
             return productDAO.deleteRow(Product);
         }
@@ -55,14 +55,14 @@ namespace OOP.Demo
             Console.WriteLine("+ Danh sach San pham : ");
             foreach (Product Product in listProduct)
             {
-                Console.WriteLine("  -Id : " + Product.getId() + " , Name : " + Product.getName());
+                Console.WriteLine("  -Id : " + Product.Id + " , Name : " + Product.Name);
             }
             Console.WriteLine("");
         }
         public void display(Product Product)
         {
             Console.WriteLine("+ San pham : ");
-            Console.WriteLine("  -Id : " + Product.getId() + " , Name : " + Product.getName() + "\n");
+            Console.WriteLine("  -Id : " + Product.Id + " , Name : " + Product.Name + "\n");
         }
 
     }
