@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OOP
 {
-    class Product:BaseRow
+    class Product : BaseRow
     {
         public override int Id { get; set; }
         public override String Name { get; set; }

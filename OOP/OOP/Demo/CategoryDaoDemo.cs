@@ -53,22 +53,22 @@ namespace OOP.Demo
         }
         public void truncateTest()
         {
-
+            categoryDAO.truncateTable();
         }
 
         public void display(List<Category> listCategory)
         {
-            Console.WriteLine("Danh sach Danh muc (display in categoryDaoDemo) :");
+            Console.WriteLine("+ Danh sach Danh muc : ");
             foreach(Category category in listCategory)
             {
-                Console.WriteLine(" -Id : " + category.Id + " , Name : " + category.Name);
+                Console.WriteLine("  -Id : " + category.Id + " , Name : " + category.Name);
             }
             Console.WriteLine("");
         }
         public void display(Category category)
         {
-            Console.WriteLine("Danh muc : ");
-            Console.WriteLine(" -Id : " + category.Id + " , Name : " + category.Name +"\n");
+            Console.WriteLine("+ Danh muc : ");
+            Console.WriteLine("  -Id : " + category.Id + " , Name : " + category.Name +"\n");
         }
     }
 }

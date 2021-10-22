@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP.Entity
 {
-    class Category:BaseRow
+    class Category : BaseRow
     {
         public override int Id { get; set; }
         public override string Name { get; set; }

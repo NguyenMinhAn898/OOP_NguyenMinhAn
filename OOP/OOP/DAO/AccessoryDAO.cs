@@ -13,7 +13,7 @@ namespace OOP.DAO
 
         private static AccessoryDAO accessoryDAO;
 
-        public AccessoryDAO getAccessoryDAO
+        public static AccessoryDAO getAccessoryDAO
         {
             get
             {
