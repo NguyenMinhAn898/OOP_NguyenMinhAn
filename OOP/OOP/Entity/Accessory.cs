@@ -7,27 +7,36 @@ using OOP.Entity;
 
 namespace OOP.Entity
 {
-    class Accessory:BaseRow,IEntity
+    class Accessory : BaseRow, IEntity
     {
-        override protected int Id { get; set; }
-        override protected String Name { get; set; }
+        private int Id;
+        private String Name;
 
         public Accessory() { }
+
         public Accessory(int id, String name)
         {
             Id = id;
             Name = name;
         }
-
-        public int getId()
+        public override int getId()
         {
             return Id;
         }
 
-        public string getName()
+        public override string getName()
         {
             return Name;
         }
 
+        public override void setId(int id)
+        {
+            Id = id;
+        }
+
+        public override void setName(string name)
+        {
+            Name = name;
+        }
     }
 }

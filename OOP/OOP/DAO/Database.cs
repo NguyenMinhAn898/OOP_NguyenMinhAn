@@ -29,8 +29,6 @@ namespace OOP.DAO
         {
             get
             {
-                if(listProduct == null)
-                    listProduct = new List<Product>();
                 return listProduct;
             }
         }
@@ -38,8 +36,6 @@ namespace OOP.DAO
         {
             get
             {
-                if (listCategory == null)
-                    listCategory = new List<Category>();
                 return listCategory;
             }
         }
@@ -47,8 +43,6 @@ namespace OOP.DAO
         {
             get
             {
-                if (listAccessory == null)
-                    listAccessory = new List<Accessory>();
                 return listAccessory;
             }
         }

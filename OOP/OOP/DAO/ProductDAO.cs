@@ -68,7 +68,7 @@ namespace OOP.DAO
             List<Product> output = new List<Product>();
             foreach(Product product in listProduct)
             {
-                if (product.Name.Equals(name))
+                if (product.getName.Equals(name))
                 {
                     output.Add(product);
                 }

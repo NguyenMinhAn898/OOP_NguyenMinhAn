@@ -10,32 +10,9 @@ namespace OOP.DAO
 {
     class CategoryDAO : BaseDAO<Category>
     {
-        private CategoryDAO() { }
+        public CategoryDAO() { }
 
-        private static CategoryDAO categoryDAO;
-
-        public static CategoryDAO getCategoryDAO
-        {
-            get
-            {
-                if (categoryDAO == null)
-                    categoryDAO = new CategoryDAO();
-                return categoryDAO;
-            }
-            
-        }
-
-        private static List<Category> listCategory = new List<Category>();
-
-        /*
-         * Get list Category
-         * 
-         * @return List<Category>
-         */
-        public static List<Category> getListCategory()
-        {
-            return listCategory;
-        }
+        private Database database = Database.getDatabase;
 
         /*
          * Insert one Category in list Category
@@ -45,8 +22,8 @@ namespace OOP.DAO
          */
         public override bool insertTable(Category insertRow)
         {
-            listCategory.Add(insertRow);
-            return true;
+            int insertId = database.insertTable(insertRow);
+            return insertId > 0 ? true : false;
         }
 
         /*
@@ -56,7 +33,7 @@ namespace OOP.DAO
          */
         public override List<Category> findAll()
         {
-            return listCategory;
+            return database.getListCategory;
         }
 
         /*
@@ -67,15 +44,15 @@ namespace OOP.DAO
          */
         public override List<Category> findAll(string name)
         {
-            List<Category> output = new List<Category>();
-            foreach(Category category in listCategory)
-            {
-                if (category.Name.Equals(name))
-                {
-                    output.Add(category);
-                }
-            }
-            return output;
+            //List<Category> output = new List<Category>();
+            //foreach(Category category in listCategory)
+            //{
+            //    if (category.getName.Equals(name))
+            //    {
+            //        output.Add(category);
+            //    }
+            //}
+            return database.;
         }
 
         /*
@@ -89,9 +66,9 @@ namespace OOP.DAO
             bool checkUpdate = false;
             foreach(Category category in listCategory)
             {
-                if(category.Id == rowUpdate.Id)
+                if(category.getId == rowUpdate.getId)
                 {
-                    category.Name = rowUpdate.Name;
+                    category.getName = rowUpdate.getName;
                     checkUpdate = true;
                 }
             }
@@ -119,7 +96,7 @@ namespace OOP.DAO
         {
             foreach (Category category in listCategory)
             {
-                if (category.Id == id)
+                if (category.getId == id)
                 {
                     listCategory.Remove(category);
                     return true;

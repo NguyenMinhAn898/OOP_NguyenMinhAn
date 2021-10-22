@@ -6,28 +6,37 @@ using System.Threading.Tasks;
 
 namespace OOP.Entity
 {
-    class Category:BaseRow,IEntity
+    class Category : BaseRow, IEntity
     {
-        override protected int Id { get; set; }
-        override protected string Name { get; set; }
+        private int Id;
+        private String Name;
 
-        public Category()
-        {
-        }
+        public Category() { }
+
         public Category(int id, String name)
         {
             Id = id;
             Name = name;
         }
 
-        public int getId()
+        public override int getId()
         {
             return Id;
         }
 
-        public string getName()
+        public override string getName()
         {
             return Name;
+        }
+
+        public override void setId(int id)
+        {
+            Id = id;
+        }
+
+        public override void setName(string name)
+        {
+            Name = name;   
         }
     }
 }

@@ -8,7 +8,10 @@ namespace OOP.Entity
 {
     interface IEntity
     {
-        public abstract int getId();
-        public abstract String getName();
+        int getId();
+        void setId(int id);
+        String getName();
+        void setName(String name);
+        
     }
 }
