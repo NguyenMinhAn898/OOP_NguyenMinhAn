@@ -47,7 +47,6 @@ namespace OOP.DAO
             }
         }
 
-        // code chưa clearn cần clean hơn nữa
         public int insertTable(String name, Object row)
         {
             if (name.Equals("Category"))
@@ -85,11 +84,11 @@ namespace OOP.DAO
         }
 
         /**
-         * Tim kiem danh sach du lieu them ten cua bang va ten can tim
+         * Get list row in table
          * 
-         * @param name ( name Table can cap nhap)
-         * @param where (ten can tim trong du lieu)
-         * @return array (Danh sach du lieu tim duoc (success) hoac new list<Object> (khong ton tai du lieu) hoac where isempy -> all list)
+         * @param name ( name Table)
+         * @param where (name select)
+         * @return List<Object>
          */
         public List<Object> selectTable(String name, String where)
         {
@@ -149,19 +148,74 @@ namespace OOP.DAO
             return output;
         }
 
-        public List<Category> selectTable(String name)
+        /**---- Overload SelectTable ----**/
+        /*
+         * Select list category wit object is Category
+         * 
+         * @Param input is object Category with name is keyword search
+         * @Return ListCategory
+         */
+        public List<Category> selectTable(Category input)
         {
-            return listCategory;
+            List<Category> ouput = new List<Category>();
+            foreach(Category category in listCategory)
+            {
+                if (category.Name.Equals(input.Name))
+                {
+                    ouput.Add(category);
+                }
+            }
+            return ouput;
         }
 
-       
+        public List<BaseRow> selectTable(String name ,BaseRow row)
+        {
+            List<BaseRow> output = new List<BaseRow>();
+            switch (name)
+            {
+                case "Category":
+                    foreach(Category category in listCategory)
+                    {
+                        if(category.Id == row.Id)
+                        {
+                            output.Add(category);
+                        }
+                    }
+                    break;
+                case "Product":
+                    // Error: object don't select categoryid
+                    foreach(Product product in listProduct)
+                    {
+                        if(product.Id == row.Id)
+                        {
+                            output.Add(product);
+                        }
+                    }
+                    break;
+                case "Accessory":
+                    foreach(Accessory accessory in listAccessory)
+                    {
+                        if(accessory.Id == row.Id)
+                        {
+                            output.Add(accessory);
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            return output;
+        }
+
+        /**---- End Overload SelectTable ----**/
 
         /**
-         * Cap nhap mot ban ghi trong danh sach theo name table va Object truyen vao
+         * Update row table 
          * 
-         * @param name ( name Table can cap nhap)
-         * @param row (Object table moi)
-         * @return int (id cua table duoc cap nhap (success) hoac 0 (fail))
+         * @param name : Table name 
+         * @param row  : Object table update
+         * @return int : id row update 
          */
         public int updateTable(String name, Object row)
         {
@@ -305,19 +359,19 @@ namespace OOP.DAO
             {
                 if(category.Id == categoryDelete.Id)
                 {
-                    return listCategory.Remove(categoryDelete) ? true : false;
+                    return listCategory.Remove(category) ? true : false;
                 }
             }
             return false;
         }
 
         public bool deleteTable(Product productDelete)
-        {
+        { 
             foreach (Product product in listProduct)
             {
                 if (product.Id == productDelete.Id)
                 {
-                    return listProduct.Remove(productDelete) ? true : false;                    
+                    return listProduct.Remove(product) ? true : false;                    
                 }
             }
             return false;
@@ -329,7 +383,7 @@ namespace OOP.DAO
             {
                 if (accessory.Id == accessoryDelete.Id)
                 {
-                    return listAccessory.Remove(accessoryDelete) ? true : false;
+                    return listAccessory.Remove(accessory) ? true : false;
                 }
             }
             return false;

@@ -32,7 +32,7 @@ namespace OOP.Demo
 
         public List<Category> findListTest(String name)
         {
-            return categoryDAO.findAll(name);
+            return categoryDAO.findAllByName(name);
         }
         public int updateTest(Category category)
         {

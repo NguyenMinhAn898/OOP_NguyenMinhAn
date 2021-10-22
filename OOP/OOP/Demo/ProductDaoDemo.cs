@@ -30,7 +30,7 @@ namespace OOP.Demo
 
         public List<Product> findListTest(String name)
         {
-            return productDAO.findAll(name);
+            return productDAO.findAllByName(name);
         }
         public int updateTest(Product Product)
         {

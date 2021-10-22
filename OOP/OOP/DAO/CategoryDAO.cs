@@ -42,9 +42,20 @@ namespace OOP.DAO
          * @Param name : name search
          * @Return List<Category>
          */
-        public override List<Category> findAll(string name)
+        public override List<Category> findAllByName(string name)
         {
             return database.getListCategory;
+        }
+
+        /*
+         * Get a Category by id
+         *  
+         * @Param id
+         * @Return Category
+         */
+        public override Category findById(int id)
+        {
+            return null;
         }
 
         /*
@@ -89,5 +100,6 @@ namespace OOP.DAO
         {
             database.truncateTable(new Category());
         }
+
     }
 }

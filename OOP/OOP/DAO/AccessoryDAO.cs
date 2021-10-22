@@ -40,9 +40,14 @@ namespace OOP.DAO
          * @Param name : name search
          * @Return List<Accessory>
          */
-        public override List<Accessory> findAll(string name)
+        public override List<Accessory> findAllByName(string name)
         {
             //return database.selectTable("Accessory", name);
+            return null;
+        }
+
+        public override Accessory findById(int id)
+        {
             return null;
         }
 
@@ -66,6 +71,11 @@ namespace OOP.DAO
         public override bool deleteRow(Accessory rowDelete)
         {
             return database.deleteTable(rowDelete);
+        }
+
+        public bool deleteRow(int id)
+        {
+            return database.deleteTable(new Accessory(id));
         }
 
         /*

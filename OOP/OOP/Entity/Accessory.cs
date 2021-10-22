@@ -7,10 +7,14 @@ using OOP.Entity;
 
 namespace OOP.Entity
 {
-    class Accessory : BaseRow, IEntity
+    class Accessory : BaseRow
     {
-       public Accessory() { }
+        public Accessory() { }
 
+        public Accessory(int id)
+        {
+            Id = id;
+        }
         public Accessory(int id, String name)
         {
             Id = id;

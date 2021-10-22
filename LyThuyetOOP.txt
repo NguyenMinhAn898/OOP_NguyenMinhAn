@@ -22,9 +22,13 @@
 		- Mức truy cập các hàm của abstract phải ở public hoặc protected để lớp kế thừa có thể định nghĩa lại và các thuộc tính của lớp abstract không 
 			được khai báo abstract
 
-	+ Interface :      - là một chức năng mà bạn có thể thêm vào bất kì class nào. Từ chức năng ở đây không đồng nghĩa với phương thức (hoặc hàm). 
-				Interface có thể bao gồm nhiều hàm/phương thức và tất cả chúng cùng phục vụ cho một chức năng 
-			   - Khi một nhóm đối tượng không có cùng bản chất nhưng chúng có hành động giống nhau thì sử dụng interface.
+		-- 
+
+	+ Interface :
+		- là một chức năng mà bạn có thể thêm vào bất kì class nào. Từ chức năng ở đây không đồng nghĩa với phương thức (hoặc hàm). 
+			Interface có thể bao gồm nhiều hàm/phương thức và tất cả chúng cùng phục vụ cho một chức năng 
+		- Khi một nhóm đối tượng không có cùng bản chất nhưng chúng có hành động giống nhau thì sử dụng interface.
+			
 
 4. Singleton parten
 	+ Tạo ra đối tượng duy nhất trong 1 class

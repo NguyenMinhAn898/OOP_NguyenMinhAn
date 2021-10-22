@@ -7,7 +7,7 @@ using OOP.DAO;
 
 namespace OOP.DAO
 {
-    class ProductDAO : BaseDAO<Product>,IDao<Product>
+    class ProductDAO : BaseDAO<Product>
     {
         public ProductDAO() { }
 
@@ -40,7 +40,18 @@ namespace OOP.DAO
          * @Param name : name search
          * @Return List<Product>
          */
-        public override List<Product> findAll(String name)
+        public override List<Product> findAllByName(String name)
+        {
+            return null;
+        }
+
+        /*
+         * Get a Product by id
+         * 
+         * @Param id
+         * @Return Product
+         */
+        public override Product findById(int id)
         {
             return null;
         }
@@ -76,5 +87,6 @@ namespace OOP.DAO
         {
             database.truncateTable(new Product());
         }
+
     }
 }

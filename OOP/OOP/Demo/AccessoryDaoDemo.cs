@@ -30,7 +30,7 @@ namespace OOP.Demo
 
         public List<Accessory> findListTest(String name)
         {
-            return accessoryDAO.findAll(name);
+            return accessoryDAO.findAllByName(name);
         }
         public int updateTest(Accessory Accessory)
         {
@@ -45,6 +45,10 @@ namespace OOP.Demo
                 return false;
             return accessoryDAO.deleteRow(Accessory);
         }
+        public bool deleteTest(int id)
+        {
+            return accessoryDAO.deleteRow(id);
+        }
         public void truncateTest()
         {
             accessoryDAO.truncateTable();
@@ -53,11 +57,19 @@ namespace OOP.Demo
         public void display(List<Accessory> listAccessory)
         {
             Console.WriteLine("+ Danh sach Accessory : ");
-            foreach (Accessory Accessory in listAccessory)
+            if(listAccessory != null) 
             {
-                Console.WriteLine("  -Id : " + Accessory.Id + " , Name : " + Accessory.Name);
+                foreach (Accessory Accessory in listAccessory)
+                {
+                    Console.WriteLine("  -Id : " + Accessory.Id + " , Name : " + Accessory.Name);
+                }
+                Console.WriteLine("");
             }
-            Console.WriteLine("");
+            else
+            {
+                Console.WriteLine("Khong co du lieu");
+            }
+           
         }
         public void display(Accessory Accessory)
         {
