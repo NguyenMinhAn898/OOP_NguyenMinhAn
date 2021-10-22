@@ -44,15 +44,7 @@ namespace OOP.DAO
          */
         public override List<Category> findAll(string name)
         {
-            //List<Category> output = new List<Category>();
-            //foreach(Category category in listCategory)
-            //{
-            //    if (category.getName.Equals(name))
-            //    {
-            //        output.Add(category);
-            //    }
-            //}
-            return database.;
+            return database.getListCategory;
         }
 
         /*
@@ -63,16 +55,7 @@ namespace OOP.DAO
          */
         public override Category updateTable(Category rowUpdate)
         {
-            bool checkUpdate = false;
-            foreach(Category category in listCategory)
-            {
-                if(category.getId == rowUpdate.getId)
-                {
-                    category.getName = rowUpdate.getName;
-                    checkUpdate = true;
-                }
-            }
-            return checkUpdate ? rowUpdate : new Category();
+            return database.updateTable(rowUpdate) > 0 ? rowUpdate : null;
         }
 
         /*
@@ -83,7 +66,7 @@ namespace OOP.DAO
          */
         public override bool deleteRow(Category rowDelete)
         {
-            return listCategory.Remove(rowDelete);
+            return database.deleteTable(rowDelete);
         }
 
         /*
@@ -94,15 +77,8 @@ namespace OOP.DAO
          */
         public bool deleteRow(int id)
         {
-            foreach (Category category in listCategory)
-            {
-                if (category.getId == id)
-                {
-                    listCategory.Remove(category);
-                    return true;
-                }
-            }
-            return false;
+
+            return database.deleteTable(new Category(id));
         }
 
         /*
@@ -111,7 +87,7 @@ namespace OOP.DAO
          */
         public override void truncateTable()
         {
-            listCategory.Clear();
+            database.truncateTable(new Category());
         }
     }
 }

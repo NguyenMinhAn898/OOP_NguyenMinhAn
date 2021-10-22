@@ -13,6 +13,11 @@ namespace OOP.Entity
 
         public Category() { }
 
+        public Category(int id)
+        {
+            Id = id;
+        }
+
         public Category(int id, String name)
         {
             Id = id;

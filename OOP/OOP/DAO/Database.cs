@@ -149,6 +149,13 @@ namespace OOP.DAO
             return output;
         }
 
+        public List<Category> selectTable(String name)
+        {
+            return listCategory;
+        }
+
+       
+
         /**
          * Cap nhap mot ban ghi trong danh sach theo name table va Object truyen vao
          * 
@@ -404,13 +411,35 @@ namespace OOP.DAO
             return output;
         }
 
-        public Category findTableById(int id)
+        public Category findTableById(Category input)
         {
             foreach(Category category in listCategory)
             {
-                if(category.getId() == id)
+                if(category.getId() == input.getId())
                 {
                     return category;
+                }
+            }
+            return null;
+        }
+        public Product findTableById(Product input)
+        {
+            foreach (Product product in listProduct)
+            {
+                if (product.getId() == input.getId())
+                {
+                    return product;
+                }
+            }
+            return null;
+        }
+        public Accessory findTableById(Accessory input)
+        {
+            foreach(Accessory accessory in listAccessory)
+            {
+                if(accessory.getId() == input.getId())
+                {
+                    return accessory;
                 }
             }
             return null;

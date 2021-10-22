@@ -10,7 +10,7 @@ namespace OOP.Demo
 {
     class AccessoryDaoDemo
     {
-        private static AccessoryDAO accessoryDAO = AccessoryDAO.getAccessoryDAO;
+        private static AccessoryDAO accessoryDAO = new AccessoryDAO();
         public void insertTest()
         {
             Accessory newAccessory = new Accessory(13, "Phu kien hoa dong tien");
@@ -36,12 +36,12 @@ namespace OOP.Demo
         {
             Accessory AccessoryUpdate = accessoryDAO.updateTable(Accessory);
             if (AccessoryUpdate != null)
-                return AccessoryUpdate.Id;
+                return AccessoryUpdate.getId();
             return 0;
         }
         public bool deleteTest(Accessory Accessory)
         {
-            if (Accessory.Id <= 0)
+            if (Accessory.getId() <= 0)
                 return false;
             return accessoryDAO.deleteRow(Accessory);
         }
@@ -55,14 +55,14 @@ namespace OOP.Demo
             Console.WriteLine("+ Danh sach Accessory : ");
             foreach (Accessory Accessory in listAccessory)
             {
-                Console.WriteLine("  -Id : " + Accessory.Id + " , Name : " + Accessory.Name);
+                Console.WriteLine("  -Id : " + Accessory.getId() + " , Name : " + Accessory.getName());
             }
             Console.WriteLine("");
         }
         public void display(Accessory Accessory)
         {
             Console.WriteLine("+ Accessory : ");
-            Console.WriteLine("  -Id : " + Accessory.Id + " , Name : " + Accessory.Name + "\n");
+            Console.WriteLine("  -Id : " + Accessory.getId() + " , Name : " + Accessory.getName() + "\n");
         }
     }
 }

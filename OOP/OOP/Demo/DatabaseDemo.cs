@@ -12,7 +12,7 @@ namespace OOP.Demo
     {
         public Database database = Database.getDatabase;
 
-        private CategoryDAO categoryDAO = CategoryDAO.getCategoryDAO;
+        private CategoryDAO categoryDAO = new CategoryDAO();
         public DatabaseDemo() { }
         public void insertTableTest() 
         {
@@ -47,21 +47,21 @@ namespace OOP.Demo
             Console.WriteLine("Danh sach Product : ");
             foreach(Product product in listProduct)
             {
-                Console.WriteLine("- ID : " + product.Id + ", Name : " + product.Name);
+                Console.WriteLine("- ID : " + product.getId() + ", Name : " + product.getName());
             }
 
             Console.WriteLine("Danh sach Category : ");
             List<Category> listCategory = database.getListCategory;
             foreach(Category category in listCategory)
             {
-                Console.WriteLine("- ID : " + category.Id + ", Name : " + category.Name);
+                Console.WriteLine("- ID : " + category.getId() + ", Name : " + category.getName());
             }
 
             Console.WriteLine("Danh sach Ass : ");
             List<Accessory> listAccessory = database.getListAccessory;
             foreach (Accessory accessory in listAccessory)
             {
-                Console.WriteLine("- ID : " + accessory.Id + ", Name : " + accessory.Name);
+                Console.WriteLine("- ID : " + accessory.getId() + ", Name : " + accessory.getName());
             }
         }        
     }

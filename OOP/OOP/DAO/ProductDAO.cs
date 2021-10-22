@@ -9,31 +9,9 @@ namespace OOP.DAO
 {
     class ProductDAO : BaseDAO<Product>
     {
-        private ProductDAO() { }
+        public ProductDAO() { }
 
-        private static ProductDAO productDAO ;
-
-        public static ProductDAO getProductDAO
-        {
-            get
-            {
-                if (productDAO == null)
-                    productDAO = new ProductDAO();
-                return productDAO;
-            }
-        }
-
-        private static List<Product> listProduct = new List<Product>();
-
-        /*
-         * Get list product
-         * 
-         * @return List<Product>
-         */
-        public List<Product> getListProduct()
-        {
-            return listProduct;
-        }
+        public static Database database = Database.getDatabase;
         
         /*
          * Insert one Product in list Product
@@ -43,8 +21,7 @@ namespace OOP.DAO
          */
         public override bool insertTable(Product insertRow)
         {
-            listProduct.Add(insertRow);
-            return true;
+            return database.insertTable(insertRow) > 0 ? true : false;
         }
 
         /*
@@ -54,7 +31,7 @@ namespace OOP.DAO
          */
         public override List<Product> findAll()
         {
-            return listProduct;            
+            return database.getListProduct;            
         }
 
         /*
@@ -65,15 +42,7 @@ namespace OOP.DAO
          */
         public override List<Product> findAll(String name)
         {
-            List<Product> output = new List<Product>();
-            foreach(Product product in listProduct)
-            {
-                if (product.getName.Equals(name))
-                {
-                    output.Add(product);
-                }
-            }
-            return output;
+            return null;
         }
 
         /*
@@ -84,16 +53,7 @@ namespace OOP.DAO
          */
         public override Product updateTable(Product rowUpdate)
         {
-            bool checkUpdate = false;
-            foreach (Product product in listProduct)
-            {
-                if (product.Id == rowUpdate.Id)
-                {
-                    product.Name = rowUpdate.Name;
-                    checkUpdate = true;
-                }
-            }
-            return checkUpdate ? rowUpdate : new Product();
+            return database.updateTable(rowUpdate) > 0 ? rowUpdate : null;
 
         }
 
@@ -105,15 +65,7 @@ namespace OOP.DAO
          */
         public override bool deleteRow(Product rowDelete)
         {
-            foreach (Product product in listProduct)
-            {
-                if (product.Id == rowDelete.Id)
-                {
-                    listProduct.Remove(product);
-                    return true;
-                }
-            }
-            return false;
+            return database.deleteTable(rowDelete);
         }
 
         /*
@@ -122,7 +74,7 @@ namespace OOP.DAO
          */
         public override void truncateTable()
         {
-            listProduct.Clear();
+            database.truncateTable(new Product());
         }
     }
 }
