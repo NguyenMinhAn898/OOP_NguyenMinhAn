@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace OOP.Entity
 {
-    abstract class BaseRow
+    interface IEntity
     {
-        abstract protected int Id { get; set; }
-        abstract protected String Name { get; set; }
+        public abstract int getId();
+        public abstract String getName();
     }
 }

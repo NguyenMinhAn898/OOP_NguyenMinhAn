@@ -7,10 +7,10 @@ using OOP.Entity;
 
 namespace OOP.Entity
 {
-    class Accessory:BaseRow
+    class Accessory:BaseRow,IEntity
     {
-        public override int Id { get; set; }
-        public override String Name { get; set; }
+        override protected int Id { get; set; }
+        override protected String Name { get; set; }
 
         public Accessory() { }
         public Accessory(int id, String name)
@@ -18,5 +18,16 @@ namespace OOP.Entity
             Id = id;
             Name = name;
         }
+
+        public int getId()
+        {
+            return Id;
+        }
+
+        public string getName()
+        {
+            return Name;
+        }
+
     }
 }

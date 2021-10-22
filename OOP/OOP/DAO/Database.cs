@@ -21,7 +21,6 @@ namespace OOP.DAO
             }
         }
 
-        // chỗ này chưa thực sự minh bạch về việc có nen sử dụng new list hay không ạ
         private static List<Product> listProduct = new List<Product>() ;
         private static List<Category> listCategory  = new List<Category>();
         private static List<Accessory> listAccessory = new List<Accessory>() ;
@@ -54,7 +53,7 @@ namespace OOP.DAO
             }
         }
 
-        // code chưa clean cần clean hơn nữa
+        // code chưa clearn cần clean hơn nữa
         public int insertTable(String name, Object row)
         {
             if (name.Equals("Category"))

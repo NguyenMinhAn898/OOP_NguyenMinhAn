@@ -8,10 +8,14 @@
 	+ Private : Truy cập bị hạn chế trong phạm vi của định nghĩa Class. Đây là loại phạm vi truy cập mặc định nếu không được chính thức chỉ định
 
 3. Interface, Asbclass
-	+ Abstract class : là một class cha cho tất cả các class có cùng bản chất. Bản chất ở đây được hiểu là kiểu, loại, nhiệm vụ của class. 
-		Hai class cùng hiện thực một interface có thể hoàn toàn khác nhau về bản chất
-	+ Interface :là một chức năng mà bạn có thể thêm và bất kì class nào. Từ chức năng ở đây không đồng nghĩa với phương thức (hoặc hàm). 
-		Interface có thể bao gồm nhiều hàm/phương thức và tất cả chúng cùng phục vụ cho một chức năng 
+	+ Abstract class : - là một class cha cho tất cả các class có cùng bản chất. Bản chất ở đây được hiểu là kiểu, loại, nhiệm vụ của class. 
+				Hai class cùng hiện thực một interface có thể hoàn toàn khác nhau về bản chất.
+			   - Khi một nhóm đối tượng có cùng bản chất kế thừa từ một class thì sử dụng abstract class.
+
+	+ Interface :      - là một chức năng mà bạn có thể thêm vào bất kì class nào. Từ chức năng ở đây không đồng nghĩa với phương thức (hoặc hàm). 
+				Interface có thể bao gồm nhiều hàm/phương thức và tất cả chúng cùng phục vụ cho một chức năng 
+			   - Khi một nhóm đối tượng không có cùng bản chất nhưng chúng có hành động giống nhau thì sử dụng interface.
 
 4. Singleton parten
+	+ Tạo ra đối tượng duy nhất trong 1 class
 	

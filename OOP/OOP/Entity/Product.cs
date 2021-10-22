@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace OOP
 {
-    class Product : BaseRow
+    class Product : BaseRow,IEntity
     {
-        public override int Id { get; set; }
-        public override String Name { get; set; }
-        public int CategoryId { get; set; }
+        override protected int Id { get; set; }
+        override protected String Name { get; set; }
+        protected int CategoryId { get; set; }
 
         public Product() { }
         public Product(int id, String name)
@@ -19,11 +19,20 @@ namespace OOP
             Id = id;
             Name = name;
         }
-        public Product(int id, String name, int categoryId)
+
+        public int getId()
         {
-            Id = id;
-            Name = name;
-            CategoryId = categoryId;
+            return Id;
+        }
+
+        public string getName()
+        {
+            return Name;
+        }
+
+        public int getCategory()
+        {
+            return CategoryId;
         }
     }
 }
