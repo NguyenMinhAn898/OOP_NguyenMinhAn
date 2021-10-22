@@ -1,0 +1,45 @@
+- Là tập hợp các quy tắc được định nghĩa ra để quy ước
+1. Quy tắc đặt tên
+ - Có 3 kiểu đặt tên thông dụng :
+	+ Pascal Case : Chữ cái đầu tiên trong từ định danh và chữ cái đầu tiên của mỗi từ nối theo sau phải được viết hoa. 
+		Sử dụng Pascal Case để đặt tên cho một tên có từ 3 ký tự trở lên.
+	+ Camel Case : Chữ cái đầu tiên trong từ định danh là chữ thường và chữ cái đầu tiên của mối từ nối theo sau phải được viết hoa.
+	+ Uppercase : Tất cả các ký tự trong từ định danh phải được viết hoa. Sử dụng quy tắc này đối với tên định danh có từ 2 ký tự trở xuống.
+
+ - Tránh thêm các tiền tố hoặc hậu tố dư thừa vô nghĩa
+ - Không thêm tên lớp chứa vào tên thuộc tính
+ - Tên biến, phương thức bool phải thể hiện được ý nghĩa nếu trả về true hoặc false. Nên sử dụng tiền tố “Is” “Can” “Has” trước tên biến, phương thức.
+ - Không dùng các tên giống nhau(chỉ phân biệt kiểu chữ in hoa hay thường) Ta khó nhận ra các định danh nhất là khi trong cùng ngữ cảnh 
+	và chỉ phân biệt các định danh bằng kiểu chữ in hoa/thường.
+ - Không tạo 2 namespace cùng tên và chỉ khác nhau ở kiểu chữ viết(chữ hoa/Chữ thường). 
+ - Không nên xây dựng 1 phương thức với các tham số có cùng tên và chỉ khác nhau kiểu chữ.
+ - Không xây dựng 1 kiểu với các tên property giống nhau và chỉ phân biệt ở kiểu chữ.
+ - Không đặt tên các phương thức có cùng tên và chỉ khác nhau ở kiểu chữ.
+
+2. Tiền tố trong controller
+ - Bắt buộc đặt tên cho tất cả các control có tham gia xử lý dưới nền
+
+3. Quy định phân bố mã nguồn 
+ - Mỗi file mã nguồn chỉ chứa duy nhất một class. Tên class chính phải trùng với tên file mã nguồn. 
+ - Với các kiểu enum, struct độc lập đơn giản ngoài class có thể được khai báo trong một file mã nguồn riêng hoặc trong file mã nguồn của class khác.
+ - Interface phải được khai báo trong một file mã nguồn riêng.
+
+4. Quy ước viết câu lệnh
+ - Mỗi câu lệnh riêng rẽ trên một dòng.
+ - Đối với biến kiểu bool, tránh dùng phép so sánh với true hoặc false.
+	+ không nên : ischecked == true 
+	+ nên ischecked ? return :  return ;
+
+5. Khối mã nguồn
+ - Sử dụng cặp dấu { } để đánh dấu một khối mã nguồn. Mỗi dấu ngoặc nằm trên một dòng (Ngoại lệ, kiểu enum, thuộc tính gọn hoặc khởi tạo giá trị cho mảng có thể không cần)
+ - Trong các lệnh if, for, foreach, ... nếu chỉ có một lệnh thì có thể không cần đánh dấu khối mã nguồn.
+
+6. Thụt đầu dòng và cách khoảng
+ - Viết cách vào một khoảng tab đối với các lệnh nằm trong khối lệnh { }.
+ - Viết cách vào một khoảng tab đối với lệnh ngay sau if, else, while, for, foreach.
+ - Viết cách một khoảng trắng xung quanh các toán tử 2 ngôi và 3 ngôi.
+ - Viết cách một khoảng trắng sau dấu “,” và “;”
+
+7. Comment
+- Nên comment trên những đoạn code khó hiểu hoặc chức năng đặc biệt. Ngôn ngữ sử dụng để chú thích phải đồng bộ xuyên suốt chương trình. 
+	Chọn một trong hai ngôn ngữ: tiếng Việt Unicode có dấu hoặc tiếng Anh.
