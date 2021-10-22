@@ -19,9 +19,9 @@ namespace OOP.DAO
          * @Param Accessory
          * @return Success -> True || Fail -> False
          */
-        public override bool insertTable(Accessory insertRow)
+        public override bool insertTable(Accessory rowInsert)
         {
-            return database.insertTable(insertRow) > 0 ? true : false;
+            return database.insertTable(rowInsert) > 0 ? true : false;
         }
 
         /*
@@ -73,6 +73,7 @@ namespace OOP.DAO
             return database.deleteTable(rowDelete);
         }
 
+        // overload chỗ này sai 
         public bool deleteRow(int id)
         {
             return database.deleteTable(new Accessory(id));

@@ -142,52 +142,43 @@ namespace OOP
 
         public static void Product()
         {
-            Console.WriteLine("+++++ Category +++++");
-            Console.WriteLine("\n++ Insert : ");
-            categoryDaoDemo.insertTest();
+            Console.WriteLine("+++++ Product +++++");
+            Console.WriteLine("\n++ Insert product: ");
+            productDaoDemo.insertTest();
 
             Console.WriteLine("\n++ Find All : ");
-            List<Category> listAllCategory = categoryDaoDemo.findAllTest();
-            categoryDaoDemo.display(listAllCategory);
+            List<Product> listAllProduct = productDaoDemo.findAllTest();
+            productDaoDemo.display(listAllProduct);
 
             Console.WriteLine("\n++ Find By name : ");
-            List<Category> listCategoryByName = categoryDaoDemo.findListTest("Cay canh");
-            categoryDaoDemo.display(listCategoryByName);
+            List<Product> listProductByName = productDaoDemo.findListTest("Cay canh");
+            productDaoDemo.display(listProductByName);
 
-            Console.WriteLine("\n++ Update Categroy : ");
-            Category categoryUpdate = new Category(8, "Trung cu");
-            int checkupdate = categoryDaoDemo.updateTest(categoryUpdate);
+            Console.WriteLine("\n++ Update Product 6 : ");
+            Product productUpdate = new Product(6, "Can ho windhome 220 m2",6);
+            int checkupdate = productDaoDemo.updateTest(productUpdate);
             if (checkupdate > 0)
             {
-                Console.WriteLine("Cap nhap thanh cong id : 8");
+                Console.WriteLine("Cap nhap thanh cong product id : 6");
             }
             else
             {
                 Console.WriteLine("Cap nhap that bai ");
             }
 
-            Console.WriteLine("\n++ Xoa danh muc id = 7");
-            bool checkDeleteCategory = categoryDaoDemo.deleteTest(new Category(7, "Quan trong phai dung object"));
-            if (checkDeleteCategory)
+            Console.WriteLine("\n++ Xoa san pham id = 7");
+            bool isChecked = productDaoDemo.deleteTest(new Product(7, "Tao tau 7",7));
+            if (isChecked)
             {
                 Console.WriteLine("Xoa thanh cong id = 7");
             }
             else
-            {
-                Console.WriteLine("Fail");
-                Console.WriteLine("Xoa tiep bang id");
-                if (categoryDaoDemo.deleteTest(7))
-                {
-                    Console.WriteLine("Xoas thanh cong");
-                }
-                else
-                {
-                    Console.WriteLine("Xoa that bai");
-                }
+            {               
+                Console.WriteLine("Xoa that bai");                
             }
-
-            Console.WriteLine("\n++ Danh sach cuoi cung :");
-            categoryDaoDemo.display(categoryDaoDemo.findAllTest());
+             
+            Console.WriteLine("\n++ Danh sach san pham cuoi cung :");
+            productDaoDemo.display(productDaoDemo.findAllTest());
         }
         public static void fetchData()
         {

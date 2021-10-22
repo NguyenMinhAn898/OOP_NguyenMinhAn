@@ -19,9 +19,9 @@ namespace OOP.DAO
          * @Param Product
          * @return Success -> True || Fail -> False
          */
-        public override bool insertTable(Product insertRow)
+        public override bool insertTable(Product rowInsert)
         {
-            return database.insertTable(insertRow) > 0 ? true : false;
+            return database.insertTable(rowInsert) > 0 ? true : false;
         }
 
         /*

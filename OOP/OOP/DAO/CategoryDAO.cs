@@ -20,9 +20,9 @@ namespace OOP.DAO
          * @Param Category
          * @return Success -> True || Fail -> False
          */
-        public override bool insertTable(Category insertRow)
+        public override bool insertTable(Category rowInsert)
         {
-            int insertId = database.insertTable(insertRow);
+            int insertId = database.insertTable(rowInsert);
             return insertId > 0 ? true : false;
         }
 
