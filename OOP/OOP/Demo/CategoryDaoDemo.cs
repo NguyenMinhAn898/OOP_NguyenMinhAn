@@ -10,7 +10,7 @@ namespace OOP.Demo
 {
     class CategoryDaoDemo
     {
-        private CategoryDAO categoryDAO = new CategoryDAO();
+        private CategoryDAO categoryDAO = CategoryDAO.getCategoryDAO;
         public void insertTest()
         {
             Category newCategory = new Category(12, "Cay canh");

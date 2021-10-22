@@ -20,3 +20,5 @@ Clearn code
 	+ Comment đúng nghĩa, giải thích ngắn gọn súc tích
 	+ Không có comment thừa
 	+ Comment chuẩn mực
+
+Đọc thêm :https://timoday.edu.vn/chuan-viet-code-trong-c/

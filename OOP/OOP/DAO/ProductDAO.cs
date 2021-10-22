@@ -9,24 +9,61 @@ namespace OOP.DAO
 {
     class ProductDAO : BaseDAO<Product>
     {
+        private ProductDAO() { }
+
+        private static ProductDAO productDAO ;
+
+        public static ProductDAO getProductDAO
+        {
+            get
+            {
+                if (productDAO == null)
+                    productDAO = new ProductDAO();
+                return productDAO;
+            }
+        }
+
         private static List<Product> listProduct = new List<Product>();
 
-        private Database database = Database.getDatabase;
-        public ProductDAO() { }
-
+        /*
+         * Get list product
+         * 
+         * @return List<Product>
+         */
+        public List<Product> getListProduct()
+        {
+            return listProduct;
+        }
+        
+        /*
+         * Insert one Product in list Product
+         * 
+         * @Param Product
+         * @return Success -> True || Fail -> False
+         */
         public override bool insertTable(Product insertRow)
         {
             listProduct.Add(insertRow);
             return true;
         }
 
+        /*
+         * Get all product
+         * 
+         * @return List<Product>
+         */
         public override List<Product> findAll()
         {
-            return listProduct;
-            
+            return listProduct;            
         }
 
-        public override List<Product> findAll(string name)
+        /*
+         * Get list Product with Product.Name = name 
+         * 
+         * @Param name : name search
+         * @Return List<Product>
+         */
+        public override List<Product> findAll(String name)
         {
             List<Product> output = new List<Product>();
             foreach(Product product in listProduct)
@@ -39,6 +76,12 @@ namespace OOP.DAO
             return output;
         }
 
+        /*
+         * Upate table Product
+         * 
+         * @Param Product
+         * @Return Product
+         */
         public override Product updateTable(Product rowUpdate)
         {
             bool checkUpdate = false;
@@ -54,6 +97,12 @@ namespace OOP.DAO
 
         }
 
+        /*
+         * Delete one Product
+         * 
+         * @Param Product
+         * @Return Success -> True || Fail -> False
+         */
         public override bool deleteRow(Product rowDelete)
         {
             foreach (Product product in listProduct)
@@ -67,6 +116,10 @@ namespace OOP.DAO
             return false;
         }
 
+        /*
+         * Truncate Product
+         * 
+         */
         public override void truncateTable()
         {
             listProduct.Clear();

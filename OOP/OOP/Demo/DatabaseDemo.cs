@@ -12,7 +12,7 @@ namespace OOP.Demo
     {
         public Database database = Database.getDatabase;
 
-        private CategoryDAO categoryDAO = new CategoryDAO();
+        private CategoryDAO categoryDAO = CategoryDAO.getCategoryDAO;
         public DatabaseDemo() { }
         public void insertTableTest() 
         {

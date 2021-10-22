@@ -7,10 +7,10 @@ using OOP.DAO;
 
 namespace OOP.Demo
 {
-    class ProductDemo:Product
+    class ProductDaoDemo
     {
-        private ProductDAO productDAO = new ProductDAO();
-       
+        private ProductDAO productDAO = ProductDAO.getProductDAO;
+
 
     }
 }

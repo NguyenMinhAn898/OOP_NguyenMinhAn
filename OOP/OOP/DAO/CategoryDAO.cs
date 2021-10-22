@@ -10,23 +10,61 @@ namespace OOP.DAO
 {
     class CategoryDAO : BaseDAO<Category>
     {
-        public CategoryDAO() { }
+        private CategoryDAO() { }
+
+        private static CategoryDAO categoryDAO;
+
+        public static CategoryDAO getCategoryDAO
+        {
+            get
+            {
+                if (categoryDAO == null)
+                    categoryDAO = new CategoryDAO();
+                return categoryDAO;
+            }
+            
+        }
 
         private static List<Category> listCategory = new List<Category>();
 
-        private Database database = Database.getDatabase;
+        /*
+         * Get list Category
+         * 
+         * @return List<Category>
+         */
+        public static List<Category> getListCategory()
+        {
+            return listCategory;
+        }
 
+        /*
+         * Insert one Category in list Category
+         * 
+         * @Param Category
+         * @return Success -> True || Fail -> False
+         */
         public override bool insertTable(Category insertRow)
         {
             listCategory.Add(insertRow);
             return true;
         }
 
+        /*
+         * Get all Category
+         * 
+         * @return List<Category>
+         */
         public override List<Category> findAll()
         {
             return listCategory;
         }
 
+        /*
+         * Get list Category with Category.Name = name 
+         * 
+         * @Param name : name search
+         * @Return List<Category>
+         */
         public override List<Category> findAll(string name)
         {
             List<Category> output = new List<Category>();
@@ -40,6 +78,12 @@ namespace OOP.DAO
             return output;
         }
 
+        /*
+         * Upate table Category
+         * 
+         * @Param Category
+         * @Return Category
+         */
         public override Category updateTable(Category rowUpdate)
         {
             bool checkUpdate = false;
@@ -54,10 +98,23 @@ namespace OOP.DAO
             return checkUpdate ? rowUpdate : new Category();
         }
 
+        /*
+         * Delete one Category
+         * 
+         * @Param Category
+         * @Return Success -> True || Fail -> False
+         */
         public override bool deleteRow(Category rowDelete)
         {
             return listCategory.Remove(rowDelete);
         }
+
+        /*
+         * Delete one Category with id category
+         * 
+         * @Param id
+         * @Return Success -> True || Fail -> False
+         */
         public bool deleteRow(int id)
         {
             foreach (Category category in listCategory)
@@ -71,6 +128,10 @@ namespace OOP.DAO
             return false;
         }
 
+        /*
+         * Truncate Category
+         * 
+         */
         public override void truncateTable()
         {
             listCategory.Clear();
