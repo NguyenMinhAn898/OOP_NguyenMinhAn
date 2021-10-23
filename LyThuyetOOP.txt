@@ -24,7 +24,7 @@
 
 		-- 
 
-	+ Interface :
+	+ Interface : Là bản thiết kế chỉ định sẵn mà không có phần định nghĩa
 		- là một chức năng mà bạn có thể thêm vào bất kì class nào. Từ chức năng ở đây không đồng nghĩa với phương thức (hoặc hàm). 
 			Interface có thể bao gồm nhiều hàm/phương thức và tất cả chúng cùng phục vụ cho một chức năng 
 		- Khi một nhóm đối tượng không có cùng bản chất nhưng chúng có hành động giống nhau thì sử dụng interface.

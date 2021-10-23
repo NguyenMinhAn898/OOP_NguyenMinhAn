@@ -30,7 +30,7 @@ namespace OOP.Demo
 
         public List<Accessory> findListTest(String name)
         {
-            return accessoryDAO.findAllByName(name);
+            return accessoryDAO.findAllByName(name).Cast<Accessory>().ToList();
         }
         public int updateTest(Accessory Accessory)
         {

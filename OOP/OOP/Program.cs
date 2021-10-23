@@ -49,6 +49,10 @@ namespace OOP
             List<Category> listAllCategory = categoryDaoDemo.findAllTest();
             categoryDaoDemo.display(listAllCategory);
 
+            Console.WriteLine("Truncate table :");
+            categoryDaoDemo.truncateTest();
+
+
             Console.WriteLine("\n++ Find By name : ");
             List<Category> listCategoryByName = categoryDaoDemo.findListTest("Cay canh");
             categoryDaoDemo.display(listCategoryByName);

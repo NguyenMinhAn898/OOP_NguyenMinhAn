@@ -10,7 +10,7 @@ namespace OOP.DAO
     {
         bool insertTable(T insertRow);
         List<T> findAll();
-        List<T> findAllByName(String name);
+        List<Object> findAllByName(String name);
         T findById(int id);
         T updateTable(T rowUpdate);
         bool deleteRow(T rowDelete);

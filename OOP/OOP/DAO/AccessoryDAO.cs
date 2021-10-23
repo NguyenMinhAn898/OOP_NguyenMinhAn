@@ -9,20 +9,10 @@ namespace OOP.DAO
 {
     class AccessoryDAO : BaseDAO<Accessory>
     {
+        private  String AccessoryName = "Accessory";
+        public override string tableName => this.AccessoryName;
+
         public AccessoryDAO() { }
-
-        private Database database = Database.getDatabase;
-
-        /*
-         * Insert one Accessory in list Accessory
-         * 
-         * @Param Accessory
-         * @return Success -> True || Fail -> False
-         */
-        public override bool insertTable(Accessory rowInsert)
-        {
-            return database.insertTable(rowInsert) > 0 ? true : false;
-        }
 
         /*
          * Get all Accessory
@@ -34,59 +24,10 @@ namespace OOP.DAO
             return database.getListAccessory;
         }
 
-        /*
-         * Get list Accessory with Accessory.Name = name 
-         * 
-         * @Param name : name search
-         * @Return List<Accessory>
-         */
-        public override List<Accessory> findAllByName(string name)
-        {
-            //return database.selectTable("Accessory", name);
-            return null;
-        }
-
-        public override Accessory findById(int id)
-        {
-            return null;
-        }
-
-        /*
-         * Upate table Accessory
-         * 
-         * @Param Accessory
-         * @Return Accessory
-         */
-        public override Accessory updateTable(Accessory rowUpdate)
-        {
-            return database.updateTable(rowUpdate) > 0 ? rowUpdate : null;
-        }
-
-        /*
-        * Delete one Accessory
-        * 
-        * @Param Accessory
-        * @Return Success -> True || Fail -> False
-        */
-        public override bool deleteRow(Accessory rowDelete)
-        {
-            return database.deleteTable(rowDelete);
-        }
-
         // overload chỗ này sai 
         public bool deleteRow(int id)
         {
             return database.deleteTable(new Accessory(id));
         }
-
-        /*
-         * Truncate Accessory
-         * 
-         */
-        public override void truncateTable()
-        {
-            database.truncateTable(new Accessory());
-        }
-
     }
 }

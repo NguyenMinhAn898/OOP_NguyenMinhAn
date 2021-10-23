@@ -32,7 +32,7 @@ namespace OOP.Demo
 
         public List<Category> findListTest(String name)
         {
-            return categoryDAO.findAllByName(name);
+            return categoryDAO.findAllByName(name).Cast<Category>().ToList();
         }
         public int updateTest(Category category)
         {
