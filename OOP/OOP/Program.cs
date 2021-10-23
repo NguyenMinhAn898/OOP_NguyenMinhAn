@@ -20,7 +20,7 @@ namespace OOP
             Bai7();
             Category();
             Accessory();
-            
+
         }
 
         public static void Bai7()
@@ -36,7 +36,7 @@ namespace OOP
             else
             {
                 Console.WriteLine("Update fail ");
-            }            
+            }
         }
 
         public static void Category()
@@ -60,7 +60,7 @@ namespace OOP
             Console.WriteLine("\n++ Update Categroy : ");
             Category categoryUpdate = new Category(8, "Trung cu");
             int checkupdate = categoryDaoDemo.updateTest(categoryUpdate);
-            if(checkupdate > 0)
+            if (checkupdate > 0)
             {
                 Console.WriteLine("Cap nhap thanh cong id : 8");
             }
@@ -159,7 +159,7 @@ namespace OOP
             productDaoDemo.display(listProductByName);
 
             Console.WriteLine("\n++ Update Product 6 : ");
-            Product productUpdate = new Product(6, "Can ho windhome 220 m2",6);
+            Product productUpdate = new Product(6, "Can ho windhome 220 m2", 6);
             int checkupdate = productDaoDemo.updateTest(productUpdate);
             if (checkupdate > 0)
             {
@@ -171,16 +171,16 @@ namespace OOP
             }
 
             Console.WriteLine("\n++ Xoa san pham id = 7");
-            bool isChecked = productDaoDemo.deleteTest(new Product(7, "Tao tau 7",7));
+            bool isChecked = productDaoDemo.deleteTest(new Product(7, "Tao tau 7", 7));
             if (isChecked)
             {
                 Console.WriteLine("Xoa thanh cong id = 7");
             }
             else
-            {               
-                Console.WriteLine("Xoa that bai");                
+            {
+                Console.WriteLine("Xoa that bai");
             }
-             
+
             Console.WriteLine("\n++ Danh sach san pham cuoi cung :");
             productDaoDemo.display(productDaoDemo.findAllTest());
         }
@@ -188,6 +188,6 @@ namespace OOP
         {
             databaseDemo.initDatabase();
         }
-        
-    }   
+
+    }
 }

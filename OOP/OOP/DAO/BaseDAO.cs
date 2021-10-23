@@ -10,12 +10,22 @@ namespace OOP.DAO
     abstract class BaseDAO<T> : IDao<T>
     {
         protected Database database = Database.getDatabase;
-        public abstract String tableName { get;} 
+        public abstract String tableName { get; }
 
+        /// <summary>
+        /// Insert row in table
+        /// </summary>
+        /// <param name="rowInsert"> new row insert table </param>
+        /// <returns>True || false </returns>
         public bool insertTable(T rowInsert)
-        {            
+        {
             return database.insertTable(tableName, rowInsert) > 0 ? true : false;
         }
+
+        /// <summary>
+        /// Get all list row in table
+        /// </summary>
+        /// <returns></returns>
         public abstract List<T> findAll();
 
         /*
@@ -50,6 +60,12 @@ namespace OOP.DAO
         {
             return database.updateTable(tableName, rowUpdate) > 0 ? rowUpdate : default(T);
         }
+
+        /// <summary>
+        /// Delete row in table
+        /// </summary>
+        /// <param name="rowDelete">a row delete </param>
+        /// <returns> Suceess -> true || Fail -> false </returns>
         public bool deleteRow(T rowDelete)
         {
             return database.deleteTable(tableName, rowDelete);

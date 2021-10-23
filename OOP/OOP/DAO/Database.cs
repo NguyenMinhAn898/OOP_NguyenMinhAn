@@ -21,9 +21,9 @@ namespace OOP.DAO
             }
         }
 
-        private static List<Product> listProduct = new List<Product>() ;
-        private static List<Category> listCategory  = new List<Category>();
-        private static List<Accessory> listAccessory = new List<Accessory>() ;
+        private static List<Product> listProduct = new List<Product>();
+        private static List<Category> listCategory = new List<Category>();
+        private static List<Accessory> listAccessory = new List<Accessory>();
 
         // Get list Product
         public List<Product> getListProduct
@@ -66,12 +66,15 @@ namespace OOP.DAO
                 Category newCategory = (Category)row;
                 listCategory.Add(newCategory);
                 return newCategory.Id;
-            } else if (name.Equals("Product"))
+            }
+            else if (name.Equals("Product"))
             {
                 Product newProduct = (Product)row;
                 listProduct.Add(newProduct);
                 return newProduct.Id;
-;           } else if (name.Equals("Accessory"))
+                ;
+            }
+            else if (name.Equals("Accessory"))
             {
                 Accessory newAccessory = (Accessory)row;
                 listAccessory.Add(newAccessory);
@@ -143,7 +146,7 @@ namespace OOP.DAO
                             output.Add((Object)category);
                         }
                     }
-                }                
+                }
             }
             else if (name.Equals("Product"))
             {
@@ -192,7 +195,7 @@ namespace OOP.DAO
         public List<Category> selectTable(Category input)
         {
             List<Category> ouput = new List<Category>();
-            foreach(Category category in listCategory)
+            foreach (Category category in listCategory)
             {
                 if (category.Name.Equals(input.Name))
                 {
@@ -202,15 +205,15 @@ namespace OOP.DAO
             return ouput;
         }
 
-        public List<BaseRow> selectTable(String name ,BaseRow row)
+        public List<BaseRow> selectTable(String name, BaseRow row)
         {
             List<BaseRow> output = new List<BaseRow>();
             switch (name)
             {
                 case "Category":
-                    foreach(Category category in listCategory)
+                    foreach (Category category in listCategory)
                     {
-                        if(category.Id == row.Id)
+                        if (category.Id == row.Id)
                         {
                             output.Add(category);
                         }
@@ -218,18 +221,18 @@ namespace OOP.DAO
                     break;
                 case "Product":
                     // Error: object don't select categoryid
-                    foreach(Product product in listProduct)
+                    foreach (Product product in listProduct)
                     {
-                        if(product.Id == row.Id)
+                        if (product.Id == row.Id)
                         {
                             output.Add(product);
                         }
                     }
                     break;
                 case "Accessory":
-                    foreach(Accessory accessory in listAccessory)
+                    foreach (Accessory accessory in listAccessory)
                     {
-                        if(accessory.Id == row.Id)
+                        if (accessory.Id == row.Id)
                         {
                             output.Add(accessory);
                         }
@@ -268,10 +271,10 @@ namespace OOP.DAO
             }
             else if (name.Equals("Product"))
             {
-                Product updateProduct = (Product)row;                
+                Product updateProduct = (Product)row;
                 foreach (Product product in listProduct)
                 {
-                    if(product.Id == updateProduct.Id)
+                    if (product.Id == updateProduct.Id)
                     {
                         output = updateProduct.Id;
                         product.Name = updateProduct.Name;
@@ -287,7 +290,7 @@ namespace OOP.DAO
                     if (accessory.Id == updateAccessory.Id)
                     {
                         output = updateAccessory.Id;
-                        accessory.Name =updateAccessory.Name;
+                        accessory.Name = updateAccessory.Name;
                     }
                 }
             }
@@ -296,9 +299,9 @@ namespace OOP.DAO
 
         public int updateTable(Category categoryUpdate)
         {
-            foreach(Category category in listCategory)
+            foreach (Category category in listCategory)
             {
-                if(category.Id == categoryUpdate.Id)
+                if (category.Id == categoryUpdate.Id)
                 {
                     category.Name = categoryUpdate.Name;
                     return categoryUpdate.Id;
@@ -326,7 +329,7 @@ namespace OOP.DAO
             {
                 if (accessory.Id == accessoryUpdate.Id)
                 {
-                    accessory.Name =accessoryUpdate.Name;
+                    accessory.Name = accessoryUpdate.Name;
                     return accessoryUpdate.Id;
                 }
             }
@@ -345,7 +348,7 @@ namespace OOP.DAO
             bool output = false;
             if (name.Equals("Category"))
             {
-                Category deleteCategory = (Category)row;                
+                Category deleteCategory = (Category)row;
                 foreach (Category category in listCategory)
                 {
                     if (category.Id == deleteCategory.Id)
@@ -355,7 +358,7 @@ namespace OOP.DAO
                         break; // đang lỗi khi remove xong quay lại list lỗi collection-was-modified-enumeration-operation-may-not-execute
                     }
                 }
-                
+
             }
             else if (name.Equals("Product"))
             {
@@ -389,9 +392,9 @@ namespace OOP.DAO
 
         public bool deleteTable(Category categoryDelete)
         {
-            foreach(Category category in listCategory)
+            foreach (Category category in listCategory)
             {
-                if(category.Id == categoryDelete.Id)
+                if (category.Id == categoryDelete.Id)
                 {
                     return listCategory.Remove(category) ? true : false;
                 }
@@ -400,12 +403,12 @@ namespace OOP.DAO
         }
 
         public bool deleteTable(Product productDelete)
-        { 
+        {
             foreach (Product product in listProduct)
             {
                 if (product.Id == productDelete.Id)
                 {
-                    return listProduct.Remove(product) ? true : false;                    
+                    return listProduct.Remove(product) ? true : false;
                 }
             }
             return false;
@@ -441,11 +444,11 @@ namespace OOP.DAO
             }
             else if (name.Equals("Accessory"))
             {
-                listAccessory.Clear();                
+                listAccessory.Clear();
             }
         }
 
-        public void  truncateTable(Category category)
+        public void truncateTable(Category category)
         {
             listCategory.Clear();
         }
@@ -475,7 +478,7 @@ namespace OOP.DAO
                     {
                         output = category;
                     }
-                }                
+                }
             }
             else if (name.Equals("Product"))
             {
@@ -485,26 +488,26 @@ namespace OOP.DAO
                     {
                         output = product;
                     }
-                }                
+                }
             }
             else if (name.Equals("Accessory"))
-            {                
+            {
                 foreach (Accessory accessory in listAccessory)
                 {
                     if (accessory.Id == id)
                     {
                         output = accessory;
                     }
-                }                
+                }
             }
             return output;
         }
 
         public Category findTableById(Category input)
         {
-            foreach(Category category in listCategory)
+            foreach (Category category in listCategory)
             {
-                if(category.Id == input.Id)
+                if (category.Id == input.Id)
                 {
                     return category;
                 }
@@ -524,9 +527,9 @@ namespace OOP.DAO
         }
         public Accessory findTableById(Accessory input)
         {
-            foreach(Accessory accessory in listAccessory)
+            foreach (Accessory accessory in listAccessory)
             {
-                if(accessory.Id == input.Id)
+                if (accessory.Id == input.Id)
                 {
                     return accessory;
                 }

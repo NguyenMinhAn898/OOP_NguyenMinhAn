@@ -23,11 +23,5 @@ namespace OOP.DAO
         {
             return database.getListAccessory;
         }
-
-        // overload chỗ này sai 
-        public bool deleteRow(int id)
-        {
-            return database.deleteTable(new Accessory(id));
-        }
     }
 }
