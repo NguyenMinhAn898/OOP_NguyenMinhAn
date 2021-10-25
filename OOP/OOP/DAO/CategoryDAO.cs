@@ -11,6 +11,10 @@ namespace OOP.DAO
     class CategoryDAO : BaseDAO<Category>
     {
         private String TableName = "Category";
+
+        /// <summary>
+        /// Update name table 
+        /// </summary>
         public override string tableName
         {
             get
@@ -19,18 +23,11 @@ namespace OOP.DAO
             }
         }
 
-
+        /// <summary>
+        /// Create constructor
+        /// </summary>
         public CategoryDAO() { }
 
-        /*
-         * Get all Category
-         * 
-         * @return List<Category>
-         */
-        public override List<Category> findAll()
-        {
-            return database.getListCategory;
-        }
 
          /*
          * Delete one Category with id category

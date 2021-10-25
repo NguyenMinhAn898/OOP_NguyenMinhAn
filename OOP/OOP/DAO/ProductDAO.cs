@@ -11,18 +11,15 @@ namespace OOP.DAO
     class ProductDAO : BaseDAO<Product>
     {
         private String ProductName = "Product";
+
+        /// <summary>
+        /// Override tableName
+        /// </summary>
         public override string tableName => this.ProductName;
 
+        /// <summary>
+        /// Create constructor
+        /// </summary>
         public ProductDAO() { }
-
-        /*
-         * Get all product`
-         * 
-         * @return List<Product>
-         */
-        public override List<Product> findAll()
-        {
-            return database.getListProduct;            
-        }
     }
 }

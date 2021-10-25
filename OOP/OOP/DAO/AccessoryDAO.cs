@@ -10,18 +10,15 @@ namespace OOP.DAO
     class AccessoryDAO : BaseDAO<Accessory>
     {
         private  String AccessoryName = "Accessory";
+
+        /// <summary>
+        /// Override string tableName
+        /// </summary>
         public override string tableName => this.AccessoryName;
 
+        /// <summary>
+        /// Create constructor
+        /// </summary>
         public AccessoryDAO() { }
-
-        /*
-         * Get all Accessory
-         * 
-         * @return List<Accessory>
-         */
-        public override List<Accessory> findAll()
-        {
-            return database.getListAccessory;
-        }
     }
 }

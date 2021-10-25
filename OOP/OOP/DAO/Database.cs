@@ -25,7 +25,9 @@ namespace OOP.DAO
         private static List<Category> listCategory = new List<Category>();
         private static List<Accessory> listAccessory = new List<Accessory>();
 
-        // Get list Product
+        /// <summary>
+        ///  Get list Product
+        /// </summary>
         public List<Product> getListProduct
         {
             get
@@ -34,7 +36,9 @@ namespace OOP.DAO
             }
         }
 
-        // Get list Category
+        /// <summary>
+        /// Get list Category
+        /// </summary>
         public List<Category> getListCategory
         {
             get
@@ -43,7 +47,9 @@ namespace OOP.DAO
             }
         }
 
-        // Get list Accessory
+        /// <summary>
+        /// Get list Accessory
+        /// </summary>
         public List<Accessory> getListAccessory
         {
             get
@@ -83,8 +89,6 @@ namespace OOP.DAO
             return 0;
         }
 
-        /**----- Overload InsertTale -----**/
-
         /// <summary>
         /// Insert one row in Table Category
         /// </summary>
@@ -118,8 +122,6 @@ namespace OOP.DAO
             return newAccessory.Id;
         }
 
-        /**----- End Overload InsertTale -----**/
-
         /**
          * Get list row in table
          * 
@@ -127,125 +129,89 @@ namespace OOP.DAO
          * @param where (name select)
          * @return List<Object>
          */
-        public List<Object> selectTable(String name, String where)
+        public List<Object> selectTable(String name, String where = null)
         {
-            List<Object> output = new List<Object>();
             if (name.Equals("Category"))
             {
                 if (String.IsNullOrEmpty(where))
                 {
-                    // or using foreach-> add
-                    output = listCategory.Cast<Object>().ToList();
+                    return listCategory.Cast<Object>().ToList();
                 }
-                else
-                {
-                    foreach (Category category in listCategory)
-                    {
-                        if (category.Name.Length > 0 && category.Name.Equals(where))
-                        {
-                            output.Add((Object)category);
-                        }
-                    }
-                }
+                return selectTableCategory(where);
             }
             else if (name.Equals("Product"))
             {
                 if (String.IsNullOrEmpty(where))
                 {
-                    output = listProduct.Cast<Object>().ToList();
+                    return listProduct.Cast<Object>().ToList();
                 }
-                else
-                {
-                    foreach (Product product in listProduct)
-                    {
-                        if (product.Name.Length > 0 && product.Name.Equals(where))
-                        {
-                            output.Add((Object)product);
-                        }
-                    }
-                }
+                return selectTableProduct(where); 
             }
             else if (name.Equals("Accessory"))
             {
                 if (String.IsNullOrEmpty(where))
                 {
-                    output = listAccessory.Cast<Object>().ToList();
+                    return listAccessory.Cast<Object>().ToList();
                 }
-                else
-                {
-                    foreach (Accessory accessory in listAccessory)
-                    {
-                        if (accessory.Name.Length > 0 && accessory.Name.Equals(where))
-                        {
-                            output.Add((Object)accessory);
-                        }
-                    }
-                }
+                return selectTableAccessory(where);
             }
-            return output;
+            return new List<Object>();
         }
 
-        /**---- Overload SelectTable ----**/
-        /**
-         * Select list category wit object is Category
-         * 
-         * @Param input is object Category with name is keyword search
-         * @Return ListCategory
-         */
-        public List<Category> selectTable(Category input)
+        /// <summary>
+        /// Select List Row in table Category
+        /// </summary>
+        /// <param name="where"> String name select </param>
+        /// <returns></returns>
+        private List<Object> selectTableCategory(String where)
         {
-            List<Category> ouput = new List<Category>();
+            List<Object> output = new List<Object>();
+            
             foreach (Category category in listCategory)
             {
-                if (category.Name.Equals(input.Name))
+                if (category.Name.Length > 0 && category.Name.Equals(where))
                 {
-                    ouput.Add(category);
+                    output.Add((Object)category);
                 }
             }
-            return ouput;
-        }
-
-        public List<BaseRow> selectTable(String name, BaseRow row)
-        {
-            List<BaseRow> output = new List<BaseRow>();
-            switch (name)
-            {
-                case "Category":
-                    foreach (Category category in listCategory)
-                    {
-                        if (category.Id == row.Id)
-                        {
-                            output.Add(category);
-                        }
-                    }
-                    break;
-                case "Product":
-                    // Error: object don't select categoryid
-                    foreach (Product product in listProduct)
-                    {
-                        if (product.Id == row.Id)
-                        {
-                            output.Add(product);
-                        }
-                    }
-                    break;
-                case "Accessory":
-                    foreach (Accessory accessory in listAccessory)
-                    {
-                        if (accessory.Id == row.Id)
-                        {
-                            output.Add(accessory);
-                        }
-                    }
-                    break;
-                default:
-                    break;
-            }
-
             return output;
         }
 
-        /**---- End Overload SelectTable ----**/
+        /// <summary>
+        /// Select list row in table Product
+        /// </summary>
+        /// <param name="where">String name search </param>
+        /// <returns></returns>
+        private List<Object> selectTableProduct(String where)
+        {
+            List<Object> output = new List<Object>();
+            foreach (Product product in listProduct)
+            {
+                if (product.Name.Length > 0 && product.Name.Equals(where))
+                {
+                    output.Add((Object)product);
+                }
+            }
+            return output;
+        }
+
+        /// <summary>
+        /// Select list row in table Accessory
+        /// </summary>
+        /// <param name="where">Name search</param>
+        /// <returns></returns>
+        private List<Object> selectTableAccessory(String where)
+        {
+            List<Object> output = new List<Object>();
+            foreach (Accessory accessory in listAccessory)
+            {
+                if (accessory.Name.Length > 0 && accessory.Name.Equals(where))
+                {
+                    output.Add((Object)accessory);
+                }
+            }
+            return output;
+        }
 
         /**
          * Update row table 

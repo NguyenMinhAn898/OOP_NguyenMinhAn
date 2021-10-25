@@ -26,7 +26,10 @@ namespace OOP.DAO
         /// Get all list row in table
         /// </summary>
         /// <returns></returns>
-        public abstract List<T> findAll();
+        public List<T> findAll()
+        {
+            return database.selectTable(tableName).Cast<T>().ToList();
+        }
 
         /*
          * Get list row 
@@ -71,10 +74,9 @@ namespace OOP.DAO
             return database.deleteTable(tableName, rowDelete);
         }
 
-        /*
-         * Truncate table
-         * 
-         */
+        /// <summary>
+        /// Truncate table
+        /// </summary>
         public void truncateTable()
         {
             database.truncateTable(tableName);

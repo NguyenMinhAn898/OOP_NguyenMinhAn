@@ -27,7 +27,6 @@ namespace OOP.Demo
         {
             return accessoryDAO.findAll();
         }
-
         public List<Accessory> findListTest(String name)
         {
             return accessoryDAO.findAllByName(name).Cast<Accessory>().ToList();
@@ -47,13 +46,12 @@ namespace OOP.Demo
         }
         public bool deleteTest(int id)
         {
-            return accessoryDAO.deleteRow(id);
+            return accessoryDAO.deleteRow(new Accessory(id));
         }
-        public void truncateTest()
+        public void truncateTest() 
         {
             accessoryDAO.truncateTable();
         }
-
         public void display(List<Accessory> listAccessory)
         {
             Console.WriteLine("+ Danh sach Accessory : ");
@@ -71,6 +69,10 @@ namespace OOP.Demo
             }
            
         }
+        /// <summary>
+        /// Display a row accessory
+        /// </summary>
+        /// <param name="Accessory"></param>
         public void display(Accessory Accessory)
         {
             Console.WriteLine("+ Accessory : ");
